@@ -8,3 +8,5 @@ François Jourde - Digital Education Expert - [Office of the Secretary-General o
 ## Slide Deck
 1. Open the slide deck interface [at this link](https://jourde.github.io/learning-designer/slidedeck.html).
 2. Upload in the interface the provided JSON file.
+## Quick links
+- activities/simple-prompt-builder.html
