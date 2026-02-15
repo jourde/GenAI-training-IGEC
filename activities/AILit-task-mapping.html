@@ -1,0 +1,1487 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Literacy Framework — Mapping Exercise</title>
+  <style>
+    :root {
+      --bg: #eeeeee;
+      --surface: #f6f6f6;
+      --surface-2: #fafafa;
+      --text: #1f1f1f;
+      --muted: #5c5c5c;
+      --border: #d7d7d7;
+      --shadow: 0 1px 2px rgba(0,0,0,.08), 0 4px 14px rgba(0,0,0,.06);
+      --radius: 14px;
+      --radius-sm: 10px;
+      --focus: 2px solid #1a73e8; /* accessible focus ring */
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.35;
+    }
+    header {
+      padding: 16px 18px 6px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    .title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+    .sub {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 78ch;
+    }
+    main {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 14px 18px 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    @media (max-width: 980px) {
+      main { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 12px;
+    }
+    .card.sticky {
+      position: sticky;
+      top: 14px;
+      max-height: calc(100vh - 28px);
+      overflow-y: auto;
+    }
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 680px) {
+      .row { grid-template-columns: 1fr; }
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      color: var(--text);
+      margin: 0 0 6px;
+      font-weight: 600;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      background: var(--surface-2);
+      color: var(--text);
+      outline: none;
+      font-size: 13px;
+    }
+    textarea { min-height: 70px; resize: vertical; font-size: 13px; }
+    input[type="text"]:focus, textarea:focus, button:focus {
+      outline: var(--focus);
+      outline-offset: 2px;
+    }
+
+    .hint {
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    .btns {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    button {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--text);
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-weight: 650;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    button:hover { filter: brightness(.98); }
+    button:active { transform: translateY(1px); }
+    button.primary {
+      border-color: #cfd7ff;
+      background: #e8f0fe;
+    }
+    button.danger {
+      border-color: #ffd1d1;
+      background: #fff0f0;
+    }
+    button.ghost {
+      background: transparent;
+    }
+    button[disabled] {
+      opacity: .55;
+      cursor: not-allowed;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .chip {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-size: 12px;
+    }
+    .chip.domain-engaging {
+      background: #EB9C88;
+      color: #fff;
+      border-color: #d88872;
+    }
+    .chip.domain-creating {
+      background: #D4E88A;
+      color: #2a3a1a;
+      border-color: #c0d876;
+    }
+    .chip.domain-managing {
+      background: #F4C8CA;
+      color: #5a2a2e;
+      border-color: #e8b4b6;
+    }
+    .chip.domain-designing {
+      background: #5B9BD5;
+      color: #fff;
+      border-color: #4a89c4;
+    }
+    .chip button {
+      padding: 2px 6px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid rgba(0,0,0,0.15);
+      background: rgba(255,255,255,0.3);
+      color: inherit;
+    }
+    .chip button:hover {
+      background: rgba(255,255,255,0.5);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .search {
+      display: flex;
+      gap: 10px;
+      align-items: end;
+      flex-wrap: wrap;
+    }
+    .search > div {
+      flex: 1 1 280px;
+      min-width: 220px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 8px 0 10px;
+    }
+    .tab {
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-size: 12px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .tab[aria-selected="true"] {
+      background: #e8f0fe;
+      border-color: #cfd7ff;
+      font-weight: 700;
+    }
+    .tab[data-domain="Engaging with AI"] {
+      background: #FEF0ED;
+      border-color: #EB9C88;
+    }
+    .tab[data-domain="Engaging with AI"][aria-selected="true"] {
+      background: #EB9C88;
+      color: #fff;
+      border-color: #d88872;
+    }
+    .tab[data-domain="Creating with AI"] {
+      background: #F7FCE8;
+      border-color: #D4E88A;
+    }
+    .tab[data-domain="Creating with AI"][aria-selected="true"] {
+      background: #D4E88A;
+      color: #2a3a1a;
+      border-color: #c0d876;
+    }
+    .tab[data-domain="Managing AI"] {
+      background: #FEF4F5;
+      border-color: #F4C8CA;
+    }
+    .tab[data-domain="Managing AI"][aria-selected="true"] {
+      background: #F4C8CA;
+      color: #5a2a2e;
+      border-color: #e8b4b6;
+    }
+    .tab[data-domain="Designing AI"] {
+      background: #EDF5FB;
+      border-color: #5B9BD5;
+    }
+    .tab[data-domain="Designing AI"][aria-selected="true"] {
+      background: #5B9BD5;
+      color: #fff;
+      border-color: #4a89c4;
+    }
+
+    .list {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+      height: 450px;
+      overflow: auto;
+      padding: 6px;
+    }
+    .item {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      padding: 10px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    .item:hover { background: #f0f0f0; }
+    .item[aria-current="true"] { background: #e8f0fe; }
+    .item .t {
+      font-size: 13px;
+      font-weight: 650;
+    }
+    .item .d {
+      margin-top: 2px;
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .domain-badge {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .domain-badge.engaging {
+      background: #EB9C88;
+    }
+    .domain-badge.creating {
+      background: #D4E88A;
+    }
+    .domain-badge.managing {
+      background: #F4C8CA;
+    }
+    .domain-badge.designing {
+      background: #5B9BD5;
+    }
+
+    .details {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: #fff;
+      padding: 10px 12px;
+      height: 200px;
+      overflow-y: auto;
+    }
+    .details h3 {
+      margin: 0 0 6px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0 0 8px;
+    }
+    .details p {
+      margin: 0 0 8px;
+      font-size: 13px;
+    }
+
+    .entries {
+      margin-top: 12px;
+      display: grid;
+      gap: 10px;
+    }
+    .entry {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px;
+    }
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+    .entry h3 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .entry small { color: var(--muted); }
+    .entry .block {
+      margin-top: 8px;
+      font-size: 13px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      background: #111;
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease;
+    }
+    .toast.show { opacity: .92; }
+  
+    .guide {
+      margin: 8px 0 10px;
+      padding: 8px 10px;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+    .guide-title {
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    ol.steps {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--text);
+      font-size: 12px;
+    }
+    ol.steps li { margin: 3px 0; }
+
+
+    .stepper{
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 18px 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .stepper .step{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 999px;
+      box-shadow: 0 1px 0 rgba(0,0,0,.04);
+    }
+    .stepper .connector{
+      flex: 1 1 40px;
+      min-width: 18px;
+      height: 2px;
+      background: var(--border);
+      border-radius: 99px;
+    }
+    .stepper .circle{
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 2px solid var(--border);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 12px;
+      background: var(--surface-2);
+      position: relative;
+    }
+    .stepper .circle .check{ display:none; font-size: 14px; line-height: 1; }
+    .stepper .circle .num{ display:inline; }
+    .stepper .label{
+      display: grid;
+      gap: 1px;
+      line-height: 1.1;
+    }
+    .stepper .label strong{ font-size: 12px; }
+    .stepper .label .small{
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .stepper .step.active{
+      background: #e8f0fe;
+      border-color: #cfd7ff;
+    }
+    .stepper .step.active .circle{
+      border-color: #1a73e8;
+      background: #e8f0fe;
+    }
+    .stepper .step.done{
+      background: #f3f8f3;
+      border-color: #cfe8cf;
+    }
+    .stepper .step.done .circle{
+      border-color: #2e7d32;
+      background: #f3f8f3;
+    }
+    .stepper .step.done .circle .num{ display:none; }
+    .stepper .step.done .circle .check{ display:inline; }
+    @media (max-width: 980px){
+      .stepper .connector{ display:none; }
+      .stepper{ gap: 8px; }
+    }
+
+  </style>
+</head>
+<body>
+<header>
+  <div class="title">
+    <h1>AI Literacy Framework — Mapping Exercise</h1>
+    <div class="btns" aria-label="Utilities">
+      <button id="btnExportJson" class="ghost" type="button">Export JSON</button>
+      <button id="btnExportCsv" class="ghost" type="button">Export CSV</button>
+      <button id="btnExportMd" class="ghost" type="button">Export Markdown</button>
+      <button id="btnCopySummary" class="ghost" type="button">Copy the summary</button>
+      <button id="btnClearAll" class="danger" type="button">Clear all</button>
+    </div>
+  </div>
+  <p class="sub">
+    Identify <strong>one concrete professional task</strong> where GenAI could support your work, select the most critical
+    <strong>AI Literacy competence(s)</strong> for doing that task well, and write a short justification.
+    Then add your entry to the list to share in plenary. (The framework includes four domains and 22 competences.)
+  </p>
+
+  <div id="progressStepper" class="stepper" role="navigation" aria-label="Exercise progress">
+    <div class="step" data-step="1" aria-current="step">
+      <div class="circle" aria-hidden="true"><span class="num">1</span><span class="check">✓</span></div>
+      <div class="label"><strong>Task</strong><span class="small">Describe the work</span></div>
+    </div>
+    <div class="connector" aria-hidden="true"></div>
+    <div class="step" data-step="2">
+      <div class="circle" aria-hidden="true"><span class="num">2</span><span class="check">✓</span></div>
+      <div class="label"><strong>Competences</strong><span class="small">Select 1–4</span></div>
+    </div>
+    <div class="connector" aria-hidden="true"></div>
+    <div class="step" data-step="3">
+      <div class="circle" aria-hidden="true"><span class="num">3</span><span class="check">✓</span></div>
+      <div class="label"><strong>Justification</strong><span class="small">Explain why</span></div>
+    </div>
+    <div class="connector" aria-hidden="true"></div>
+    <div class="step" data-step="4">
+      <div class="circle" aria-hidden="true"><span class="num">4</span><span class="check">✓</span></div>
+      <div class="label"><strong>Add</strong><span class="small">Share in plenary</span></div>
+    </div>
+  </div>
+
+</header>
+
+<main>
+  <section class="card" aria-labelledby="entryTitle">
+    <h2 id="entryTitle">Your entry</h2>
+
+    <div id="stepGuide" class="guide" role="note" aria-label="Steps to complete the mapping">
+      <div class="guide-title">Steps</div>
+      <ol class="steps">
+        <li><strong>Describe</strong> one concrete professional task where GenAI could support your work.</li>
+        <li><strong>Select</strong> 1–4 critical competence(s) in the picker (search and filter by domain).</li>
+        <li><strong>Justify</strong> briefly why these competence(s) matter for doing the task well.</li>
+        <li><strong>Add</strong> your entry to the list and use the summary panel for plenary sharing.</li>
+      </ol>
+    </div>
+
+
+    <div class="row">
+      <div>
+        <label for="groupName">Group / name</label>
+        <input id="groupName" type="text" autocomplete="name" placeholder="e.g., Group 2 / François" />
+        <div class="hint">Optional — helps when sharing back.</div>
+      </div>
+      <div>
+        <label for="context">Context (optional)</label>
+        <input id="context" type="text" placeholder="e.g., inspection, policy note, stakeholder consultation" />
+        <div class="hint">Use a few keywords; avoid personal data.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:10px">
+      <label for="task">Concrete professional task where GenAI could realistically support your work *</label>
+      <textarea id="task" placeholder="Example: Draft a briefing note for senior management synthesising stakeholder feedback from multiple emails and minutes."></textarea>
+      <div class="hint">Write the task (not the tool). Focus on what you need to produce or decide.</div>
+    </div>
+
+    <div style="margin-top:10px">
+      <label for="justification">Short justification for the competence(s) you selected *</label>
+      <textarea id="justification" placeholder="Explain why these competence(s) matter most for quality, reliability, ethics, and human judgement in this task."></textarea>
+      <div class="hint">Aim for 3–6 lines. Mention risks you're managing (e.g., bias, privacy, accuracy, IP).</div>
+    </div>
+
+    <div style="margin-top:10px">
+      <label>Selected competences *</label>
+      <div id="selectedChips" class="chips" aria-live="polite"></div>
+      <div class="hint">Select 1–4 "most critical" competences (recommended). You can select more if needed.</div>
+    </div>
+
+    <div class="toolbar">
+      <div class="hint" id="validationMsg" aria-live="polite">Complete steps 1–3 above, then click “Add to list”.</div>
+      <div class="btns">
+        <button id="btnAddEntry" class="primary" type="button">Add to list</button>
+        <button id="btnResetEntry" type="button">Reset entry</button>
+      </div>
+    </div>
+
+    <details style="margin-top:12px" open>
+      <summary style="cursor:pointer; font-weight:700; font-size:14px; padding:8px 0;">Saved entries (<span id="savedCount">0</span>)</summary>
+      <div class="entries" id="entriesList" aria-label="Saved entries" style="margin-top:8px"></div>
+    </details>
+
+    <details style="margin-top:12px" open>
+      <summary style="cursor:pointer; font-weight:700; font-size:14px; padding:8px 0;">Plenary summary</summary>
+      <div style="margin-top:8px">
+        <div class="hint" style="margin-bottom:8px">This panel updates as entries are added/removed. Use it to share in plenary.</div>
+        <label class="sr-only" for="summaryText">Summary text</label>
+        <textarea id="summaryText" readonly style="min-height: 140px"></textarea>
+        <div class="toolbar" style="margin-top:8px">
+          <div class="hint" id="summaryCount"></div>
+          <div class="btns">
+            <button id="btnCopySummaryPanel" class="ghost" type="button">Copy the summary</button>
+            <button id="btnExportMdPanel" class="ghost" type="button">Export to Markdown</button>
+          </div>
+        </div>
+      </div>
+    </details>
+
+  </section>
+
+  <aside class="card sticky" aria-labelledby="pickerTitle">
+    <h2 id="pickerTitle">Competence picker</h2>
+
+    <div class="search">
+      <div>
+        <label for="searchBox">Search competences</label>
+        <input id="searchBox" type="text" placeholder="Search by keyword (e.g., bias, prompt, evaluate, data)" />
+      </div>
+      <div>
+        <label for="domainSelect">Filter by domain</label>
+        <div class="tabs" role="tablist" aria-label="Domains">
+          <button class="tab" role="tab" aria-selected="true" data-domain="ALL" type="button">All</button>
+          <button class="tab" role="tab" aria-selected="false" data-domain="Engaging with AI" type="button">Engaging</button>
+          <button class="tab" role="tab" aria-selected="false" data-domain="Creating with AI" type="button">Creating</button>
+          <button class="tab" role="tab" aria-selected="false" data-domain="Managing AI" type="button">Managing</button>
+          <button class="tab" role="tab" aria-selected="false" data-domain="Designing AI" type="button">Designing</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="list" id="competenceList" role="listbox" aria-label="Competences"></div>
+
+      <div class="details" id="details" aria-live="polite">
+        <h3 id="detailsTitle">Select a competence</h3>
+        <p class="meta" id="detailsMeta"></p>
+        <p id="detailsDesc"></p>
+        <p class="meta" id="detailsKsa"></p>
+      </div>
+    </div>
+
+    <div class="toolbar" style="margin-top:12px">
+      <div class="hint">Tip: click a row to read details; use the checkbox to select it.</div>
+      <div class="btns">
+        <button id="btnSelectRecommended" type="button">Select common set</button>
+        <button id="btnClearSelected" type="button">Clear selection</button>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  "use strict";
+
+  const COMPETENCES = [
+  {
+    "id": "C01",
+    "domain": "Engaging with AI",
+    "title": "Recognize AI’s role and influence in different contexts.",
+    "ksa": "Knowledge: K1.4, K5.1 Skills: Self and Social Awareness Attitudes: Curious, Responsible",
+    "description": "Learners identify the presence of AI in everyday tools and systems and consider its purposein various situations, such as content recommendations or adaptive learning. They reflect onhow AI influences their choices, learning, and perceptions."
+  },
+  {
+    "id": "C02",
+    "domain": "Engaging with AI",
+    "title": "Evaluate whether AI outputs should be accepted, revised, or rejected.",
+    "ksa": "Knowledge: K4.1, K4.3 Skills: Critical Thinking Attitudes: Responsible",
+    "description": "Learners critically assess the accuracy and fairness of AI-generated content, recognizing that AI can generate misinformation or biased outputs. They decide whether to trust, modify, oroverride AI outputs by considering their potential impact on themselves and others."
+  },
+  {
+    "id": "C03",
+    "domain": "Engaging with AI",
+    "title": "Examine how predictive AI systems provide recommendations that can inform and limit perspectives.",
+    "ksa": "Knowledge: K1.1, K4.3 Skills: Self and Social Awareness Attitudes: Curious",
+    "description": "Learners explore how AI uses data patterns to offer suggestions (e.g., what to watch, buy,or read) and consider how those recommendations may both support learning or decision-making and reinforce narrow viewpoints or biases."
+  },
+  {
+    "id": "C04",
+    "domain": "Engaging with AI",
+    "title": "Explain how AI could be used to amplify societal biases.",
+    "ksa": "Knowledge: K2.1, K2.5 Skills: Critical Thinking, Self and Social Awareness, Problem Solving Attitudes: Empathetic,Responsible",
+    "description": "Learners investigate how AI systems, such as facial recognition or hiring algorithms, reflecthuman decisions and data, and identify ways that bias in data or design can lead to unfairoutcomes for different groups of people."
+  },
+  {
+    "id": "C05",
+    "domain": "Engaging with AI",
+    "title": "Describe how AI systems consume energy and natural resources.",
+    "ksa": "Knowledge: K4.2 Skills: Self and Social Awareness Attitudes: Responsible",
+    "description": "Learners explore the environmental impact of AI, including its energy and data infrastructure,and consider how responsible design and use can support sustainability."
+  },
+  {
+    "id": "C06",
+    "domain": "Engaging with AI",
+    "title": "Analyze how well the use of an AI system aligns with ethical principles and human values.",
+    "ksa": "Knowledge: K1.4, K3.3, K5.4 Skills: Self and Social Awareness, Critical Thinking, Problem Solving Attitudes: Responsible",
+    "description": "Learners assess whether using AI in a given situation, such as surveillance cameras in publicspaces or moderating online content, supports values such as fairness, transparency, andprivacy. They reflect on whether its use is appropriate, beneficial, or potentially harmful."
+  },
+  {
+    "id": "C07",
+    "domain": "Engaging with AI",
+    "title": "Connect AI’s social and ethical impacts to its technical capabilities and limitations.",
+    "ksa": "Knowledge: K2.1, K5.2 Skills: Self and Social Awareness, Problem Solving Attitudes: Curious, Empathetic, Responsible",
+    "description": "Learners explore how AI’s strengths and weaknesses affect how it’s used in society. Theyconnect the design and function of AI systems to real-world impact on people, communities,and systems."
+  },
+  {
+    "id": "C08",
+    "domain": "Creating with AI",
+    "title": "Use AI systems to explore new perspectives and approaches that build upon original ideas.",
+    "ksa": "Knowledge: K4.1 Skills: Creativity Attitudes: Innovative, Adaptable",
+    "description": "Learners experiment with AI to expand their thinking, generate new ideas, or consideralternative viewpoints. They stay accountable for the final content while letting AI supporttheir creative process."
+  },
+  {
+    "id": "C09",
+    "domain": "Creating with AI",
+    "title": "Visualize, prototype, and combine ideas using different types of AI systems.",
+    "ksa": "Knowledge: K1.4 Skills: Collaboration, Creativity Attitudes: Curious, Adaptable",
+    "description": "Learners try out AI tools that operate in different formats (text, images, music, etc.) to exploreand refine new ideas. They combine outputs into a meaningful product or solution."
+  },
+  {
+    "id": "C10",
+    "domain": "Creating with AI",
+    "title": "Collaborate with generative AI systems to elicit feedback, refine results, and reflect on thought processes.",
+    "ksa": "Knowledge: K2.3 Skills: Computational Thinking, Creativity Attitudes: Innovative, Adaptable",
+    "description": "Learners engage in an iterative process with AI by testing prompts and refining AI-generatedoutputs, and then reflect on how the interaction shaped their thinking and choices."
+  },
+  {
+    "id": "C11",
+    "domain": "Creating with AI",
+    "title": "Analyze how AI can safeguard or violate content authenticity and intellectual property.",
+    "ksa": "Knowledge: K5.3 Skills: Problem Solving, Self and Social Awareness Attitudes: Empathetic, Responsible",
+    "description": "Learners explore how AI-generated content may borrow from or replicate existing work, andconsider when that use is fair, original, or in need of attribution. They reflect on the ethicalimplications of AI-assisted creation."
+  },
+  {
+    "id": "C12",
+    "domain": "Creating with AI",
+    "title": "Explain how AI systems perform tasks using precise language that avoids anthropomorphism.",
+    "ksa": "Knowledge: K1.3, K1.4 Skills: Communication Attitudes: Responsible",
+    "description": "Learners describe how AI operates in realistic, accurate terms, avoiding language thatsuggests AI has human feelings or understanding. They understand that their language caneither clarify or perpetuate misconceptions about AI."
+  },
+  {
+    "id": "C13",
+    "domain": "Managing AI",
+    "title": "Decide whether to use AI systems based on the nature of the task.",
+    "ksa": "Knowledge: K4.1, 5.4 Skills: Problem Solving, Computational Thinking Attitudes: Responsible, Innovative",
+    "description": "Learners assess whether AI is the right tool for a specific situation. They consider factors likethe complexity of the task, the need for human judgment, and the ethical implications."
+  },
+  {
+    "id": "C14",
+    "domain": "Managing AI",
+    "title": "Decompose a problem based on the capabilities and limitations of both AI systems and humans.",
+    "ksa": "Knowledge: K4.1 Skills: Collaboration, Computational Thinking, Problem Solving Attitudes: Innovative, Adaptable",
+    "description": "Learners break down a complex task and decide which parts can be handled by AI and whichrequire human involvement. They distribute tasks based on their nature and human and AIstrengths."
+  },
+  {
+    "id": "C15",
+    "domain": "Managing AI",
+    "title": "Direct generative AI systems by providing specific instructions, appropriate context, and evaluation criteria.",
+    "ksa": "Knowledge: K1.3, K2.3 Skills: Collaboration, Computational Thinking Attitudes: Innovative, Adaptable",
+    "description": "Learners practice prompt engineering by giving AI clear, structured inputs to guide outputsthat meet expectations and goals."
+  },
+  {
+    "id": "C16",
+    "domain": "Managing AI",
+    "title": "Delegate tasks to AI systems to appropriately automate or augment human workflows.",
+    "ksa": "Knowledge: K3.1 Skills: Collaboration, Problem Solving Attitudes: Innovative",
+    "description": "Learners identify opportunities to offload repetitive or structured tasks to AI, allowingpeople to focus on creativity, ethics, or decision-making."
+  },
+  {
+    "id": "C17",
+    "domain": "Managing AI",
+    "title": "Develop and communicate guidelines for using AI systems that alignwith human values, promote fairness, and prioritize transparency.",
+    "ksa": "Knowledge: K5.4 Skills: Communication, Critical Thinking, Self and Social Awareness Attitudes: Responsible, Empathetic",
+    "description": "Learners create or reinforce responsible guidelines for AI use in academic contexts. Theyconsider existing guidelines from local, national, or international organizations, such as the European Commission or the OECD."
+  },
+  {
+    "id": "C18",
+    "domain": "Designing AI",
+    "title": "Describe how AI systems can be designed to support a solution to a community problem.",
+    "ksa": "Knowledge: K2.3, K3.2 Skills: Collaboration, Problem Solving, Self and Social Awareness Attitudes: Curious, Innovative Responsible",
+    "description": "Learners explore how AI can solve real-world problems by identifying a community needthat could be addressed with AI, considering how to design AI to contribute to a solution, andevaluating the potential benefits, risks, and limitations."
+  },
+  {
+    "id": "C19",
+    "domain": "Designing AI",
+    "title": "Compare the capabilities and limitations of AI systems that follow algorithmscreated by humans with those that make predictions based on data.",
+    "ksa": "Knowledge: K1.2, K1.4 Skills: Computational Thinking, Problem Solving Attitudes: Curious",
+    "description": "Learners examine the difference between systems that follow fixed rules (or manuallyprogrammed logic) and machine learning models to understand the value of machine learningand determine when each approach is most useful or appropriate."
+  },
+  {
+    "id": "C20",
+    "domain": "Designing AI",
+    "title": "Collect and curate data that could be used to train an AI model byconsidering relevance, representation, and potential impact.",
+    "ksa": "Knowledge: K1.2, K2.2, K2.4 Skills: Computational Thinking, Self and Social Awareness Attitudes: Innovative, Responsible",
+    "description": "Learners discover how data is labeled, selected, and prepared to train an AI model. Theylearn how data quality and representation affect the model’s performance and potentialeffect on people."
+  },
+  {
+    "id": "C21",
+    "domain": "Designing AI",
+    "title": "Evaluate AI systems using defined criteria, expected outcomes, and user feedback.",
+    "ksa": "Knowledge: K1.2, K2.3 Skills: Collaboration, Computational Thinking Attitudes: Innovative, Adaptable",
+    "description": "Learners set criteria for a successful AI system, test it with various inputs, and evaluate itsperformance to make improvements. They use an iterative process shaped by feedback fromdiverse users."
+  },
+  {
+    "id": "C22",
+    "domain": "Designing AI",
+    "title": "Describe an AI model’s purpose, intended users, and its limitations.",
+    "ksa": "Knowledge: K1.2, K2.1 Skills: Communication, Problem Solving, Self and Social Awareness Attitudes: Curious, Responsible",
+    "description": "Learners describe the purpose of an AI model, the data used to train it, and what it can orcannot do well. They help others develop a realistic understanding of the model’s capabilities and limitations."
+  }
+];
+
+  const state = {
+    selected: new Set(),
+    currentId: null,
+    entries: [],
+    lastAddedHash: null,
+    draft: {
+      groupName: "",
+      context: "",
+      task: "",
+      justification: ""
+    },
+    ui: {
+      filterDomain: "ALL",
+      search: ""
+    }
+  };
+
+  const LS_KEY = "ailit_mapping_v1";
+
+  function $(id) { return document.getElementById(id); }
+
+  function toast(msg) {
+    const t = $("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    window.clearTimeout(toast._timer);
+    toast._timer = window.setTimeout(() => t.classList.remove("show"), 2200);
+  }
+
+  function save() {
+    const payload = {
+      selected: Array.from(state.selected),
+      currentId: state.currentId,
+      entries: state.entries,
+      lastAddedHash: state.lastAddedHash,
+      draft: {
+        groupName: $("groupName").value,
+        context: $("context").value,
+        task: $("task").value,
+        justification: $("justification").value
+      },
+      ui: state.ui
+    };
+    localStorage.setItem(LS_KEY, JSON.stringify(payload));
+  }
+
+  function load() {
+    try {
+      const raw = localStorage.getItem(LS_KEY);
+      if (!raw) return;
+      const p = JSON.parse(raw);
+      state.selected = new Set(p.selected || []);
+      state.currentId = p.currentId || null;
+      state.entries = Array.isArray(p.entries) ? p.entries : [];
+      state.ui = p.ui || state.ui;
+
+      $("groupName").value = p.draft?.groupName || "";
+      $("context").value = p.draft?.context || "";
+      $("task").value = p.draft?.task || "";
+      $("justification").value = p.draft?.justification || "";
+
+      $("searchBox").value = state.ui.search || "";
+      setDomainTab(state.ui.filterDomain || "ALL");
+    } catch (e) {
+      console.warn("Load failed", e);
+    }
+  }
+
+  function setDomainTab(domain) {
+    state.ui.filterDomain = domain;
+    document.querySelectorAll(".tab").forEach(btn => {
+      const selected = btn.dataset.domain === domain;
+      btn.setAttribute("aria-selected", selected ? "true" : "false");
+    });
+    renderCompetenceList();
+  }
+
+  function competenceMatches(c) {
+    const dOk = (state.ui.filterDomain === "ALL") || (c.domain === state.ui.filterDomain);
+    if (!dOk) return false;
+    const q = (state.ui.search || "").trim().toLowerCase();
+    if (!q) return true;
+    const hay = `${c.title} ${c.domain} ${c.ksa} ${c.description}`.toLowerCase();
+    return hay.includes(q);
+  }
+
+  function renderCompetenceList() {
+    const list = $("competenceList");
+    list.innerHTML = "";
+    const filtered = COMPETENCES.filter(competenceMatches);
+
+    if (filtered.length === 0) {
+      const empty = document.createElement("div");
+      empty.className = "item";
+      empty.style.cursor = "default";
+      empty.innerHTML = `<div></div><div><div class="t">No matches</div><div class="d">Try a different keyword or domain.</div></div>`;
+      list.appendChild(empty);
+      return;
+    }
+
+    filtered.forEach(c => {
+      const row = document.createElement("div");
+      row.className = "item";
+      row.setAttribute("role", "option");
+      row.setAttribute("aria-selected", state.selected.has(c.id) ? "true" : "false");
+      row.setAttribute("aria-current", state.currentId === c.id ? "true" : "false");
+      row.dataset.id = c.id;
+
+      const cbWrap = document.createElement("div");
+      const cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.checked = state.selected.has(c.id);
+      cb.setAttribute("aria-label", `Select competence: ${c.title}`);
+      cb.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        toggleSelected(c.id);
+      });
+      cbWrap.appendChild(cb);
+
+      const body = document.createElement("div");
+      const badgeClass = getDomainBadgeClass(c.domain);
+      body.innerHTML = `<div class="t">${escapeHtml(c.title)}</div><div class="d"><span class="domain-badge ${badgeClass}"></span>${escapeHtml(c.domain)}</div>`;
+
+      row.appendChild(cbWrap);
+      row.appendChild(body);
+
+      row.addEventListener("click", () => {
+        state.currentId = c.id;
+        renderDetails(c.id);
+        renderCompetenceList(); // keep highlight in sync
+        save();
+      });
+
+      list.appendChild(row);
+    });
+  }
+
+  function renderDetails(id) {
+    const c = COMPETENCES.find(x => x.id === id);
+    if (!c) return;
+    $("detailsTitle").textContent = c.title;
+    $("detailsMeta").textContent = c.domain;
+    $("detailsDesc").textContent = c.description || "";
+    $("detailsKsa").textContent = c.ksa || "";
+  }
+
+  function renderSelectedChips() {
+    const wrap = $("selectedChips");
+    wrap.innerHTML = "";
+    const selected = COMPETENCES.filter(c => state.selected.has(c.id));
+
+    if (selected.length === 0) {
+      const p = document.createElement("div");
+      p.className = "hint";
+      p.textContent = "None selected yet.";
+      wrap.appendChild(p);
+      return;
+    }
+
+    selected.forEach(c => {
+      const chip = document.createElement("span");
+      const domainClass = getDomainClass(c.domain);
+      chip.className = `chip ${domainClass}`;
+      chip.innerHTML = `<span>${escapeHtml(c.title)}</span>`;
+      const x = document.createElement("button");
+      x.type = "button";
+      x.textContent = "×";
+      x.setAttribute("aria-label", `Remove competence: ${c.title}`);
+      x.addEventListener("click", () => toggleSelected(c.id));
+      chip.appendChild(x);
+      wrap.appendChild(chip);
+    });
+  }
+
+  function getDomainClass(domain) {
+    const map = {
+      "Engaging with AI": "domain-engaging",
+      "Creating with AI": "domain-creating",
+      "Managing AI": "domain-managing",
+      "Designing AI": "domain-designing"
+    };
+    return map[domain] || "";
+  }
+
+  function getDomainBadgeClass(domain) {
+    const map = {
+      "Engaging with AI": "engaging",
+      "Creating with AI": "creating",
+      "Managing AI": "managing",
+      "Designing AI": "designing"
+    };
+    return map[domain] || "";
+  }
+
+  function renderEntries() {
+    const list = $("entriesList");
+    list.innerHTML = "";
+
+    const savedCount = $("savedCount");
+    if (savedCount) savedCount.textContent = state.entries.length;
+
+    if (state.entries.length === 0) {
+      const p = document.createElement("p");
+      p.className = "hint";
+      p.textContent = "No saved entries yet. Add one above to build a plenary list.";
+      list.appendChild(p);
+      return;
+    }
+
+    state.entries.slice().reverse().forEach(e => {
+      const card = document.createElement("div");
+      card.className = "entry";
+
+      const comps = COMPETENCES.filter(c => (e.competenceIds || []).includes(c.id))
+        .map(c => c.title);
+
+      const when = new Date(e.createdAt).toLocaleString(undefined, {
+        year: "numeric", month: "short", day: "2-digit", hour: "2-digit", minute: "2-digit"
+      });
+
+      card.innerHTML = `
+        <div class="entry-head">
+          <h3>${escapeHtml(e.groupName || "Entry")}</h3>
+          <small>${when}</small>
+        </div>
+        <div class="block"><strong>Task:</strong> ${escapeHtml(e.task)}</div>
+        <div class="block"><strong>Competences:</strong> ${escapeHtml(comps.join("; "))}</div>
+        <div class="block"><strong>Justification:</strong> ${escapeHtml(e.justification)}</div>
+        <div class="toolbar">
+          <div class="hint">${escapeHtml(e.context ? ("Context: " + e.context) : "")}</div>
+          <div class="btns">
+            <button type="button" class="ghost" data-action="edit" data-id="${e.id}">Edit</button>
+            <button type="button" class="danger" data-action="delete" data-id="${e.id}">Delete</button>
+          </div>
+        </div>
+      `;
+
+      card.querySelectorAll("button[data-action]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const action = btn.dataset.action;
+          const id = btn.dataset.id;
+          if (action === "delete") {
+            deleteEntry(id);
+          } else if (action === "edit") {
+            loadEntryIntoForm(id);
+          }
+        });
+      });
+
+      list.appendChild(card);
+    });
+  }
+
+  function toggleSelected(id) {
+    if (state.selected.has(id)) state.selected.delete(id);
+    else state.selected.add(id);
+
+    // keep details synced on toggle if none selected yet
+    if (!state.currentId) state.currentId = id;
+
+    renderSelectedChips();
+    renderCompetenceList();
+    renderDetails(state.currentId);
+    validateDraft(false);
+    renderStepper();
+    save();
+  }
+
+
+  function currentDraftHash() {
+    const task = $("task").value.trim();
+    const justification = $("justification").value.trim();
+    const selected = Array.from(state.selected).slice().sort();
+    return JSON.stringify({ task, justification, selected });
+  }
+
+  function renderStepper() {
+    const taskOk = $("task").value.trim().length >= 10;
+    const compsOk = state.selected.size >= 1;
+    const justOk = $("justification").value.trim().length >= 10;
+    const addOk = (state.lastAddedHash && state.lastAddedHash === currentDraftHash());
+
+    const statuses = [taskOk, compsOk, justOk, addOk];
+
+    let current = 4;
+    for (let i = 0; i < statuses.length; i++) {
+      if (!statuses[i]) { current = i + 1; break; }
+    }
+
+    const steps = document.querySelectorAll("#progressStepper .step");
+    steps.forEach(step => {
+      const n = Number(step.dataset.step);
+      const done = statuses[n-1] === true;
+      const active = (n === current);
+
+      step.classList.toggle("done", done);
+      step.classList.toggle("active", active);
+
+      if (active) step.setAttribute("aria-current", "step");
+      else step.removeAttribute("aria-current");
+
+      step.setAttribute("aria-label",
+        `Step ${n}: ${done ? "complete" : (active ? "in progress" : "not started")}`
+      );
+    });
+  }
+
+  function validateDraft(showMessages=true) {
+    const msg = $("validationMsg");
+    const task = $("task").value.trim();
+    const just = $("justification").value.trim();
+    const n = state.selected.size;
+
+    let problems = [];
+    if (task.length < 10) problems.push("Add a clearer task (at least ~10 characters).");
+    if (n < 1) problems.push("Select at least 1 competence.");
+    if (just.length < 10) problems.push("Add a short justification (at least ~10 characters).");
+
+    if (showMessages) {
+      msg.textContent = problems.length ? problems.join(" ") : "Ready to add.";
+    } else {
+      msg.textContent = problems.length ? problems.join(" ") : "";
+    }
+
+    $("btnAddEntry").disabled = problems.length > 0;
+    renderStepper();
+    return problems.length === 0;
+  }
+
+  function addEntry() {
+    if (!validateDraft(true)) return;
+
+    const entry = {
+      id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2),
+      groupName: $("groupName").value.trim(),
+      context: $("context").value.trim(),
+      task: $("task").value.trim(),
+      justification: $("justification").value.trim(),
+      competenceIds: Array.from(state.selected),
+      createdAt: new Date().toISOString()
+    };
+
+    state.entries.push(entry);
+    state.lastAddedHash = currentDraftHash();
+    toast("Entry added.");
+    renderEntries();
+    renderSummaryPanel();
+    save();
+  }
+
+  function resetEntry() {
+    $("groupName").value = "";
+    $("context").value = "";
+    $("task").value = "";
+    $("justification").value = "";
+    state.selected.clear();
+    state.currentId = null;
+    state.lastAddedHash = null;
+    $("detailsTitle").textContent = "Select a competence";
+    $("detailsMeta").textContent = "";
+    $("detailsDesc").textContent = "";
+    $("detailsKsa").textContent = "";
+    $("searchBox").value = "";
+    state.ui.search = "";
+    $("validationMsg").textContent = "Complete steps 1–3 above, then click \"Add to list\".";
+    setDomainTab("ALL");
+    renderSelectedChips();
+    renderCompetenceList();
+    validateDraft(false);
+    renderStepper();
+    save();
+    toast("Draft reset.");
+  }
+
+  function deleteEntry(id) {
+    const before = state.entries.length;
+    state.entries = state.entries.filter(e => e.id !== id);
+    if (state.entries.length !== before) {
+      toast("Entry deleted.");
+      renderEntries();
+      renderSummaryPanel();
+      // conservative: reset step 4 indicator after deletion
+      state.lastAddedHash = null;
+      save();
+      validateDraft(false);
+    renderStepper();
+    }
+  }
+
+  function loadEntryIntoForm(id) {
+    const e = state.entries.find(x => x.id === id);
+    if (!e) return;
+    $("groupName").value = e.groupName || "";
+    $("context").value = e.context || "";
+    $("task").value = e.task || "";
+    $("justification").value = e.justification || "";
+    state.selected = new Set(e.competenceIds || []);
+    state.currentId = (e.competenceIds && e.competenceIds[0]) ? e.competenceIds[0] : null;
+
+    renderSelectedChips();
+    renderCompetenceList();
+    if (state.currentId) renderDetails(state.currentId);
+    validateDraft(true);
+    save();
+    toast("Loaded into form (edit then add as a new entry).");
+  }
+
+
+  function buildSummaryMarkdown() {
+    if (!state.entries.length) {
+      return `## Plenary summary
+
+_No entries yet._
+`;
+    }
+
+    const DOMAIN_ORDER = [
+      "Engaging with AI",
+      "Creating with AI",
+      "Managing AI",
+      "Designing AI"
+    ];
+
+    const lines = [];
+    lines.push("## Plenary summary");
+    lines.push("");
+
+    state.entries.forEach((e, idx) => {
+      const team = (e.groupName || "").trim() || "Not provided";
+      const ctx = (e.context || "").trim() || "Not provided";
+
+      const comps = (e.competenceIds || []).map(id => {
+        const c = COMPETENCES.find(x => x.id === id);
+        return c ? { title: c.title, domain: c.domain } : { title: id, domain: "Unknown domain" };
+      });
+
+      const grouped = new Map();
+      comps.forEach(c => {
+        const d = c.domain || "Unknown domain";
+        if (!grouped.has(d)) grouped.set(d, []);
+        grouped.get(d).push(c.title);
+      });
+
+      grouped.forEach(arr => arr.sort((a,b) => a.localeCompare(b)));
+
+      lines.push(`### ${idx+1}. ${team}`);
+      lines.push("");
+      lines.push(`- **Context:** ${ctx}`);
+      lines.push(`- **Task:** ${e.task}`);
+      lines.push(`- **Competences (grouped by domain):**`);
+
+      if (!comps.length) {
+        lines.push("  - Not provided");
+      } else {
+        const remaining = Array.from(grouped.keys())
+          .filter(d => !DOMAIN_ORDER.includes(d))
+          .sort((a,b) => a.localeCompare(b));
+        const domainsToPrint = DOMAIN_ORDER.filter(d => grouped.has(d)).concat(remaining);
+
+        domainsToPrint.forEach(d => {
+          lines.push(`  - *${d}*`);
+          (grouped.get(d) || []).forEach(t => lines.push(`    - ${t}`));
+        });
+      }
+
+      lines.push(`- **Justification:** ${e.justification}`);
+      lines.push("");
+    });
+
+    return lines.join("\n");
+    }
+
+  function renderSummaryPanel() {
+    const md = buildSummaryMarkdown();
+    const ta = $("summaryText");
+    if (ta) ta.value = md;
+
+    const count = $("summaryCount");
+    if (count) count.textContent = `${state.entries.length} entr${state.entries.length === 1 ? "y" : "ies"}.`;
+
+    const meta = $("summaryMeta");
+    if (meta) meta.textContent = "Markdown-ready";
+  }
+
+  function exportMarkdown() {
+    const md = buildSummaryMarkdown();
+    download("ai_literacy_mapping_summary.md", md, "text/markdown");
+  }
+
+  function exportJson() {
+    const payload = {
+      exportedAt: new Date().toISOString(),
+      entries: state.entries.map(e => ({
+        ...e,
+        competences: (e.competenceIds || []).map(id => {
+          const c = COMPETENCES.find(x => x.id === id);
+          return c ? { id: c.id, domain: c.domain, title: c.title } : { id };
+        })
+      }))
+    };
+    download("ai_literacy_mapping.json", JSON.stringify(payload, null, 2), "application/json");
+  }
+
+  function exportCsv() {
+    const rows = [];
+    rows.push(["group_name","context","task","competences","justification","created_at"].join(","));
+    state.entries.forEach(e => {
+      const comps = (e.competenceIds || []).map(id => {
+        const c = COMPETENCES.find(x => x.id === id);
+        return c ? c.title : id;
+      }).join("; ");
+      const row = [
+        csv(e.groupName || ""),
+        csv(e.context || ""),
+        csv(e.task || ""),
+        csv(comps),
+        csv(e.justification || ""),
+        csv(e.createdAt || "")
+      ].join(",");
+      rows.push(row);
+    });
+    download("ai_literacy_mapping.csv", rows.join("\n"), "text/csv");
+  }
+
+  function copySummary() {
+    const txt = buildSummaryMarkdown();
+    navigator.clipboard.writeText(txt).then(() => toast("Summary copied."), () => toast("Copy blocked by browser."));
+  }
+
+  function clearAll() {
+    if (!confirm("Clear ALL saved entries and the current draft?")) return;
+    state.entries = [];
+    localStorage.removeItem(LS_KEY);
+    resetEntry();
+    renderEntries();
+    toast("All cleared.");
+  }
+
+  function download(filename, content, mime) {
+    const blob = new Blob([content], { type: mime || "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  function csv(value) {
+    const s = String(value ?? "");
+    const needs = /[",\n]/.test(s);
+    return needs ? `"${s.replace(/"/g, '""')}"` : s;
+  }
+
+  function escapeHtml(s) {
+    return String(s ?? "").replace(/[&<>"']/g, (ch) => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+    }[ch]));
+  }
+
+  function selectCommonSet() {
+    // A pragmatic baseline for many GenAI work tasks:
+    // (1) decide if AI is appropriate, (2) direct AI with instructions, (3) evaluate outputs, (4) check ethics & values.
+    const picks = {
+      "Decide whether to use AI systems based on the nature of the task.": true,
+      "Direct generative AI systems by providing specific instructions, appropriate context, and evaluation criteria.": true,
+      "Evaluate whether AI outputs should be accepted, revised, or rejected.": true,
+      "Analyze how well the use of an AI system aligns with ethical principles and human values.": true
+    };
+    let changed = 0;
+    COMPETENCES.forEach(c => {
+      const key = c.title;
+      if (picks[key]) {
+        if (!state.selected.has(c.id)) {
+          state.selected.add(c.id);
+          changed++;
+        }
+      }
+    });
+    renderSelectedChips();
+    renderCompetenceList();
+    validateDraft(true);
+    save();
+    toast(changed ? "Common set selected." : "Common set already selected.");
+  }
+
+  function clearSelectionOnly() {
+    state.selected.clear();
+    renderSelectedChips();
+    renderCompetenceList();
+    validateDraft(true);
+    save();
+    toast("Selection cleared.");
+  }
+
+  // Wire up events
+  document.addEventListener("DOMContentLoaded", () => {
+    load();
+
+    // live validation & saving for inputs
+    ["groupName","context","task","justification"].forEach(id => {
+      $(id).addEventListener("input", () => {
+        validateDraft(false);
+    renderStepper();
+        save();
+      });
+    });
+
+    $("searchBox").addEventListener("input", () => {
+      state.ui.search = $("searchBox").value;
+      renderCompetenceList();
+      save();
+    });
+
+    document.querySelectorAll(".tab").forEach(btn => {
+      btn.addEventListener("click", () => setDomainTab(btn.dataset.domain));
+    });
+
+    $("btnAddEntry").addEventListener("click", addEntry);
+    $("btnResetEntry").addEventListener("click", resetEntry);
+    $("btnExportJson").addEventListener("click", exportJson);
+    $("btnExportCsv").addEventListener("click", exportCsv);
+    const bmd = $("btnExportMd"); if (bmd) bmd.addEventListener("click", exportMarkdown);
+    $("btnCopySummary").addEventListener("click", copySummary);
+    const b1 = $("btnCopySummaryPanel"); if (b1) b1.addEventListener("click", copySummary);
+    const b2 = $("btnExportMdPanel"); if (b2) b2.addEventListener("click", exportMarkdown);
+    $("btnClearAll").addEventListener("click", clearAll);
+    $("btnSelectRecommended").addEventListener("click", selectCommonSet);
+    $("btnClearSelected").addEventListener("click", clearSelectionOnly);
+
+    // initial render
+    renderSelectedChips();
+    renderCompetenceList();
+    renderEntries();
+    renderSummaryPanel();
+    validateDraft(false);
+    renderStepper();
+
+    // default details: first competence
+    if (!state.currentId) {
+      const first = COMPETENCES[0]?.id;
+      if (first) {
+        state.currentId = first;
+        renderDetails(first);
+      }
+    } else {
+      renderDetails(state.currentId);
+    }
+  });
+</script>
+</body>
+</html>
