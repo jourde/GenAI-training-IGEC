@@ -10,7 +10,6 @@
             --md-sys-color-primary: #37474f; /* Deep Grey 800 */
             --md-sys-color-surface: #ffffff;
             --md-sys-color-outline: #727779;
-            --md-sys-color-surface-variant: #f1f3f4;
             --radius-large: 12px;
             --elevation-1: 0 2px 8px rgba(0,0,0,0.1);
         }
@@ -32,12 +31,11 @@
 
         header {
             margin-bottom: 32px;
-            text-align: left;
             border-left: 6px solid var(--md-sys-color-primary);
             padding-left: 20px;
         }
 
-        h1 { font-weight: 700; color: var(--md-sys-color-primary); margin: 0; font-size: 2rem; letter-spacing: -0.5px; }
+        h1 { font-weight: 700; color: var(--md-sys-color-primary); margin: 0; font-size: 2rem; }
         .subtitle { color: #5f6368; margin-top: 4px; font-size: 1.1rem; }
 
         .card {
@@ -75,10 +73,8 @@
             font-size: 0.85rem;
             color: #5f6368;
             margin-bottom: 12px;
-            line-height: 1.4;
         }
 
-        /* Essential for resizability */
         textarea {
             width: 100%;
             padding: 14px;
@@ -88,21 +84,18 @@
             font-family: inherit;
             box-sizing: border-box;
             background-color: #fff;
-            transition: border-color 0.2s;
-            resize: vertical; /* Explicitly allows vertical resizing */
-            min-height: 60px;
+            resize: vertical;
+            min-height: 80px;
         }
 
         textarea:focus {
             outline: none;
             border: 2px solid var(--md-sys-color-primary);
-            padding: 13px; /* Offset for border thickness */
         }
 
         .lazy-prompt-field {
             background-color: #fafafa;
             border-style: dashed;
-            min-height: 80px;
         }
 
         .grid-layout {
@@ -122,12 +115,8 @@
             font-weight: 700;
             font-size: 1rem;
             cursor: pointer;
-            transition: opacity 0.2s;
             width: 100%;
-            margin-top: 10px;
         }
-
-        button:hover { opacity: 0.9; }
 
         .result-area {
             display: none;
@@ -144,9 +133,8 @@
             font-family: 'Courier New', Courier, monospace;
             font-size: 1rem;
             color: #2c3e50;
-            resize: vertical;
+            min-height: 200px;
             overflow: auto;
-            min-height: 150px;
         }
 
         .copy-btn {
@@ -156,9 +144,7 @@
             margin-top: 20px;
         }
 
-        .copy-btn:hover { background-color: rgba(55, 71, 79, 0.05); }
-
-        footer { text-align: center; margin-top: 60px; color: #70757a; font-size: 0.85rem; padding-bottom: 40px; }
+        footer { text-align: center; margin-top: 60px; color: #70757a; font-size: 0.85rem; }
 
         @media (max-width: 768px) {
             .grid-layout { grid-template-columns: 1fr; }
@@ -171,16 +157,16 @@
 <div class="container">
     <header>
         <h1>IGEC Prompt Builder</h1>
-        <p class="subtitle">Structured framework for General Inspection of Education and Science.</p>
+        <p class="subtitle">Structured framework for Inspectorate professionals.</p>
     </header>
 
     <main>
         <section class="card">
-            <h2 class="section-title">Step 1: The Initial Idea</h2>
+            <h2 class="section-title">Step 1: Initial Request</h2>
             <div class="input-group">
                 <label for="initialRequest">Draft Prompt</label>
                 <span class="hint"><strong>Example:</strong> "Write a report about school safety based on these inspection notes."</span>
-                <textarea id="initialRequest" class="lazy-prompt-field" placeholder="Enter your current draft or vague request here..."></textarea>
+                <textarea id="initialRequest" class="lazy-prompt-field" placeholder="Paste your initial idea here..."></textarea>
             </div>
         </section>
 
@@ -190,49 +176,49 @@
                 
                 <div class="input-group">
                     <label for="persona">Persona</label>
-                    <span class="hint">Role (e.g., Senior Auditor, Legal Expert).</span>
+                    <span class="hint">Specific Role/Expertise.</span>
                     <textarea id="persona" placeholder="Act as a..."></textarea>
                 </div>
 
                 <div class="input-group">
                     <label for="audience">Audience</label>
-                    <span class="hint">Who reads this? (e.g., Board of Directors).</span>
+                    <span class="hint">Target Reader.</span>
                     <textarea id="audience" placeholder="The audience is..."></textarea>
                 </div>
 
                 <div class="input-group full-width">
                     <label for="objective">Objective</label>
-                    <span class="hint">What is the exact outcome? (e.g., Identify non-compliance in disciplinary procedures).</span>
+                    <span class="hint">Exact Action/Outcome.</span>
                     <textarea id="objective" placeholder="The task is to..."></textarea>
                 </div>
 
                 <div class="input-group full-width">
                     <label for="context">Context</label>
-                    <span class="hint">Background details (e.g., Following a formal complaint regarding Decree-Law 54/2018).</span>
+                    <span class="hint">Background details/Legislation.</span>
                     <textarea id="context" placeholder="This is necessary because..."></textarea>
                 </div>
 
                 <div class="input-group full-width">
                     <label for="boundaries">Boundaries</label>
-                    <span class="hint">Constraints (e.g., Technical tone, max 2 pages, cite specific legislation).</span>
-                    <textarea id="boundaries" placeholder="Style and limitations..."></textarea>
+                    <span class="hint">Style, Format, and Constraints.</span>
+                    <textarea id="boundaries" placeholder="Constraints..."></textarea>
                 </div>
 
                 <div class="full-width">
-                    <button type="button" onclick="generatePrompt()">Generate Structured Prompt</button>
+                    <button type="button" onclick="generatePrompt()">Construct Final Prompt</button>
                 </div>
             </form>
         </section>
 
         <section id="outputCard" class="card result-area">
-            <h2 class="section-title">Step 3: Refined Instruction</h2>
-            <div id="finalPromptText" aria-live="polite"></div>
+            <h2 class="section-title">Step 3: Markdown Instruction</h2>
+            <div id="finalPromptText"></div>
             <button class="copy-btn" onclick="copyPrompt()">Copy to Clipboard</button>
         </section>
     </main>
 
     <footer>
-        &copy; 2026 IGEC Professional Training Division
+        &copy; 2026 IGEC Professional Training
     </footer>
 </div>
 
@@ -245,11 +231,12 @@
         const b = document.getElementById('boundaries').value.trim();
 
         if (!p || !o || !a || !c || !b) {
-            alert("Please complete all five elements of the framework.");
+            alert("Please complete all elements.");
             return;
         }
 
-        const masterPrompt = `### ROLE / PERSONA\n${p}\n\n### CONTEXT & BACKGROUND\n${c}\n\n### OBJECTIVE / TASK\n${o}\n\n### TARGET AUDIENCE\n${a}\n\n### CONSTRAINTS & STYLE\n${b}`;
+        // Using Single # for Level 1 Headers as requested
+        const masterPrompt = `# PERSONA\n${p}\n\n# CONTEXT\n${c}\n\n# OBJECTIVE\n${o}\n\n# AUDIENCE\n${a}\n\n# BOUNDARIES & STYLE\n${b}`;
         
         document.getElementById('finalPromptText').innerText = masterPrompt;
         const output = document.getElementById('outputCard');
@@ -260,7 +247,7 @@
     function copyPrompt() {
         const text = document.getElementById('finalPromptText').innerText;
         navigator.clipboard.writeText(text).then(() => {
-            alert("Prompt copied. You can now paste it into your AI assistant.");
+            alert("Prompt copied with Markdown headers.");
         });
     }
 </script>
