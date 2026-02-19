@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construtor de prompts para IGEC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #37474f; /* Deep Grey 800 */
+            --accent: #263238;
+            --bg: #f4f7f9;
+            --surface: #ffffff;
+            --border: #cfd8dc;
+            --radius: 12px;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --text-main: #1c1b1f;
+            --text-secondary: #546e7a; /* darkened from #607d8b for WCAG AA contrast */
+            --focus-ring: 0 0 0 3px #fff, 0 0 0 5px #37474f; /* high-contrast 2-layer focus ring */
+        }
+
+        /* Skip to main content link (WCAG 2.4.1) */
+        .skip-link {
+            position: absolute; top: -100px; left: 1rem; z-index: 99999;
+            background: var(--primary); color: #fff; padding: 10px 18px;
+            border-radius: 0 0 8px 8px; font-weight: 700; text-decoration: none;
+            font-size: 0.9rem; transition: top 0.2s;
+        }
+        .skip-link:focus { top: 0; }
+
+        body, html {
+            height: 100%; margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+        }
+
+        .app-wrapper {
+            display: flex; flex-direction: column; height: 100vh;
+        }
+
+        header {
+            background: var(--primary); color: white;
+            padding: 1rem 2.5rem; display: flex; justify-content: space-between; align-items: center;
+            box-shadow: var(--shadow);
+        }
+
+        .main-content {
+            display: flex; flex: 1; overflow: hidden; padding: 25px; gap: 25px;
+        }
+
+        /* Unified Panel Styles */
+        .editor-panel, .preview-panel {
+            flex: 1; display: flex; flex-direction: column;
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .panel-scroll {
+            flex: 1; overflow-y: auto; padding: 25px;
+        }
+
+        .panel-header {
+            background: #fafafa;
+            padding: 15px 25px;
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+            font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px;
+            color: var(--primary);
+        }
+
+        /* Form Styling */
+        .field-header {
+            display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;
+        }
+
+        label { font-weight: 700; color: var(--primary); font-size: 0.9rem; display: block; margin-bottom: 4px; }
+
+        .hint { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 12px; display: block; line-height: 1.4; }
+
+        .input-container { position: relative; margin-bottom: 28px; }
+
+        textarea {
+            width: 100%; border: 1px solid var(--border); border-radius: 8px;
+            padding: 14px 14px 42px 14px; font-size: 1rem; font-family: inherit;
+            resize: vertical; min-height: 90px; box-sizing: border-box;
+            transition: all 0.2s; background-color: #fff;
+        }
+
+        textarea:focus { outline: none; border: 2px solid var(--primary); box-shadow: 0 0 0 4px rgba(55, 71, 79, 0.15); }
+
+        /* Visible focus ring for all interactive elements (WCAG 2.4.7, 2.4.11) */
+        :focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        button:focus-visible, a:focus-visible { box-shadow: var(--focus-ring); outline: none; }
+
+        .lazy-prompt { background-color: #fdfdfd; border: 1px dashed var(--border); }
+
+        /* Fullscreen Mode */
+        .fullscreen-btn {
+            position: absolute; bottom: 10px; right: 10px; z-index: 10;
+            background: #eceff1; border: none; cursor: pointer; color: var(--primary);
+            padding: 5px 10px; border-radius: 6px; display: flex; align-items: center; gap: 5px;
+            font-size: 0.75rem; font-weight: 600; font-family: inherit;
+            transition: 0.2s; letter-spacing: 0.3px;
+            /* Always visible for keyboard users; subtler visually at rest */
+            opacity: 0.55;
+        }
+        /* Show fully on hover OR focus (keyboard nav) */
+        .input-container:hover .fullscreen-btn,
+        .fullscreen-btn:focus-visible { opacity: 1; }
+        .fullscreen-btn:hover { background: #cfd8dc; transform: translateY(-1px); opacity: 1; }
+
+        /* Hide-from-prompt toggle button */
+        .hide-toggle-btn {
+            background: none; border: none; cursor: pointer;
+            padding: 2px 6px; border-radius: 4px;
+            color: var(--text-secondary); line-height: 1;
+            display: inline-flex; align-items: center; gap: 3px;
+            font-size: 0.8rem; font-family: inherit; font-weight: 600;
+            transition: color 0.15s, background 0.15s; opacity: 0.6;
+        }
+        .hide-toggle-btn:hover { opacity: 1; color: var(--primary); background: #eceff1; }
+        .hide-toggle-btn[aria-pressed="true"] { color: #b0bec5; opacity: 1; }
+        .hide-toggle-btn[aria-pressed="true"]:hover { color: #e57373; background: #fff5f5; }
+        .hide-toggle-btn .icon-eye-open  { display: inline-block; }
+        .hide-toggle-btn .icon-eye-slash { display: none; }
+        .hide-toggle-btn[aria-pressed="true"] .icon-eye-open  { display: none; }
+        .hide-toggle-btn[aria-pressed="true"] .icon-eye-slash { display: inline-block; }
+
+        /* Hidden field state */
+        .input-container.field-hidden textarea {
+            opacity: 0.45; border-style: dashed;
+            background-color: #f4f7f9; color: var(--text-secondary);
+        }
+        .input-container.field-hidden > .field-header > label {
+            text-decoration: line-through; color: var(--text-secondary);
+        }
+
+        /* Override label margin when inside flex field-header */
+        .field-header label { margin-bottom: 0; }
+
+        textarea.fullscreen-active {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 9999; border-radius: 0; padding: 50px; font-size: 1.25rem;
+            background: white; line-height: 1.6;
+        }
+
+        .fs-exit-btn {
+            position: fixed; top: 18px; right: 24px; z-index: 10000;
+            background: var(--primary); color: white; border: none; cursor: pointer;
+            padding: 10px 18px; border-radius: 8px; font-size: 0.9rem; font-weight: 700;
+            font-family: inherit; display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2); transition: 0.2s;
+        }
+        .fs-exit-btn:hover { background: var(--accent); transform: translateY(-1px); }
+
+        /* Live Preview Styling */
+        .preview-body {
+            font-family: 'Fira Code', monospace;
+            font-size: 1rem;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            color: #334155;
+            background: #ffffff;
+            border: 1px solid #edf2f7;
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .tag-h1 { color: #e65100; font-weight: bold; border-bottom: 2px solid #ffccbc; padding-bottom: 2px; }
+
+        /* Actions */
+        .actions { display: flex; gap: 12px; padding: 20px 25px; background: #fafafa; border-top: 1px solid var(--border); }
+
+        .btn {
+            flex: 1; padding: 14px; border-radius: 8px; border: none;
+            font-weight: 700; cursor: pointer; transition: 0.2s; font-size: 0.9rem;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+
+        .btn-copy { background: var(--primary); color: white; }
+        .btn-download { background: #546e7a; color: white; }
+        .btn-reset { background: transparent; color: #b0bec5; border: 1px solid #cfd8dc; flex: 0.4; }
+
+        .btn:hover { filter: brightness(1.2); transform: translateY(-1px); }
+        .btn-reset:hover { border-color: #90a4ae; color: #607d8b; }
+
+        #save-status { font-weight: 400; text-transform: none; color: #2e7d32; font-size: 0.75rem; } /* darkened green for WCAG AA on #fafafa */
+
+        hr { border: 0; border-top: 1px solid #eceff1; margin: 35px 0; }
+
+        /* Prompt stats counter */
+        .prompt-stats {
+            text-align: right; font-size: 0.78rem; color: var(--text-secondary);
+            margin-top: 10px; font-family: 'Fira Code', monospace;
+        }
+
+        /* Draft reference block in preview */
+        .draft-ref {
+            background: #f8f9fa; border: 1px solid #e8ecef; border-radius: 6px;
+            padding: 12px 16px; margin-bottom: 18px;
+            font-style: italic; font-size: 0.9rem; color: #546e7a; /* WCAG AA on #f8f9fa */
+            font-family: 'Fira Code', monospace; white-space: pre-wrap; line-height: 1.5;
+        }
+        .draft-ref-label {
+            display: block; font-style: normal; font-weight: 700; font-size: 0.72rem;
+            text-transform: uppercase; letter-spacing: 0.5px; color: #546e7a;
+            margin-bottom: 6px; font-family: 'Roboto', sans-serif;
+        }
+
+.example-toggle-btn {
+            width: 100%; padding: 10px; border-radius: 8px; border: 1px dashed var(--border);
+            background: transparent; color: var(--text-secondary); cursor: pointer;
+            font-size: 0.85rem; font-family: inherit; font-weight: 600;
+            transition: 0.2s; text-align: center;
+        }
+        .example-toggle-btn:hover { border-color: var(--primary); color: var(--primary); background: #f4f7f9; }
+        .example-toggle-btn.active { border-color: #b0bec5; color: #b0bec5; }
+        .example-toggle-btn.active:hover { border-color: #e57373; color: #e57373; background: #fff5f5; }
+
+        @media (max-width: 900px) {
+            .main-content { flex-direction: column; overflow-y: auto; }
+            .editor-panel, .preview-panel { min-height: 600px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Ir para o conteúdo principal (WCAG 2.4.1) -->
+<a class="skip-link" href="#main-content">Ir para o conteúdo principal</a>
+
+<div class="app-wrapper">
+    <header role="banner">
+        <div>
+            <h1 style="margin:0; font-size: 1.5rem; letter-spacing: -0.5px;">Construtor de prompts para IGEC</h1>
+            <span style="font-size: 0.85rem; opacity: 0.9;">Estruture o seu pensamento. Molde o resultado.</span>
+        </div>
+        <button class="btn btn-reset" onclick="resetForm()">Limpar Dados</button>
+    </header>
+
+    <!-- aria-live region for status announcements (WCAG 4.1.3) -->
+    <div id="a11y-announce" aria-live="polite" aria-atomic="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;"></div>
+
+    <main id="main-content" class="main-content">
+        <section class="editor-panel" aria-label="Construtor de prompt">
+            <div class="panel-header" aria-hidden="true">Construtor de Prompt</div>
+            <div class="panel-scroll">
+                <div class="input-container">
+                    <label for="draft">Pedido Inicial (para referência)</label>
+                    <span id="hint-draft" class="hint">A sua ideia em bruto. Exemplo: "Elaborar um relatório sobre segurança escolar."</span>
+                    <textarea id="draft" class="lazy-prompt" placeholder="Escreva ou cole a sua ideia inicial aqui..."
+                        aria-describedby="hint-draft"></textarea>
+                </div>
+
+                <hr aria-hidden="true">
+
+                <div class="input-container" id="container-persona">
+                    <div class="field-header">
+                        <label for="persona"># PERSONA/PAPEL</label>
+                        <button class="hide-toggle-btn" id="hide-btn-persona" aria-pressed="false"
+                            aria-label="Ocultar Persona/Papel do prompt"
+                            onclick="toggleHide('persona', 'Persona/Papel')">
+                            <svg class="icon-eye-open" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                            <svg class="icon-eye-slash" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                        </button>
+                    </div>
+                    <span id="hint-persona" class="hint">Papel (ex.: Especialista Sénior em Auditoria com experiência em Direito Administrativo).</span>
+                    <textarea id="persona" placeholder="Age como um..."
+                        aria-describedby="hint-persona"></textarea>
+                    <button class="fullscreen-btn" onclick="toggleFS('persona')" aria-label="Expandir Persona/Papel para ecrã inteiro">⛶ Ecrã Inteiro</button>
+                </div>
+
+                <div class="input-container" id="container-context">
+                    <div class="field-header">
+                        <label for="context"># CONTEXTO</label>
+                        <button class="hide-toggle-btn" id="hide-btn-context" aria-pressed="false"
+                            aria-label="Ocultar Contexto do prompt"
+                            onclick="toggleHide('context', 'Contexto')">
+                            <svg class="icon-eye-open" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                            <svg class="icon-eye-slash" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                        </button>
+                    </div>
+                    <span id="hint-context" class="hint">Informações de fundo (ex.: Decreto-Lei 54/2018, reclamações específicas).</span>
+                    <textarea id="context" placeholder="Esta tarefa decorre de..."
+                        aria-describedby="hint-context"></textarea>
+                    <button class="fullscreen-btn" onclick="toggleFS('context')" aria-label="Expandir Contexto para ecrã inteiro">⛶ Ecrã Inteiro</button>
+                </div>
+
+                <div class="input-container" id="container-objective">
+                    <div class="field-header">
+                        <label for="objective"># OBJETIVO</label>
+                        <button class="hide-toggle-btn" id="hide-btn-objective" aria-pressed="false"
+                            aria-label="Ocultar Objetivo do prompt"
+                            onclick="toggleHide('objective', 'Objetivo')">
+                            <svg class="icon-eye-open" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                            <svg class="icon-eye-slash" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                        </button>
+                    </div>
+                    <span id="hint-objective" class="hint">Ação ou resultado exato pretendido.</span>
+                    <textarea id="objective" placeholder="O objetivo principal é..."
+                        aria-describedby="hint-objective"></textarea>
+                    <button class="fullscreen-btn" onclick="toggleFS('objective')" aria-label="Expandir Objetivo para ecrã inteiro">⛶ Ecrã Inteiro</button>
+                </div>
+
+                <div class="input-container" id="container-audience">
+                    <div class="field-header">
+                        <label for="audience"># AUDIÊNCIA</label>
+                        <button class="hide-toggle-btn" id="hide-btn-audience" aria-pressed="false"
+                            aria-label="Ocultar Audiência do prompt"
+                            onclick="toggleHide('audience', 'Audiência')">
+                            <svg class="icon-eye-open" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                            <svg class="icon-eye-slash" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                        </button>
+                    </div>
+                    <span id="hint-audience" class="hint">Quem vai ler o resultado? (ex.: Conselho de Administração da Escola).</span>
+                    <textarea id="audience" placeholder="O público-alvo é..."
+                        aria-describedby="hint-audience"></textarea>
+                    <button class="fullscreen-btn" onclick="toggleFS('audience')" aria-label="Expandir Audiência para ecrã inteiro">⛶ Ecrã Inteiro</button>
+                </div>
+
+                <div class="input-container" id="container-boundaries">
+                    <div class="field-header">
+                        <label for="boundaries"># LIMITES &amp; ESTILO</label>
+                        <button class="hide-toggle-btn" id="hide-btn-boundaries" aria-pressed="false"
+                            aria-label="Ocultar Limites &amp; Estilo do prompt"
+                            onclick="toggleHide('boundaries', 'Limites &amp; Estilo')">
+                            <svg class="icon-eye-open" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                            <svg class="icon-eye-slash" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                        </button>
+                    </div>
+                    <span id="hint-boundaries" class="hint">Formato, tom, extensão ou restrições (ex.: tom técnico, máx. 2 páginas).</span>
+                    <textarea id="boundaries" placeholder="A resposta deve..."
+                        aria-describedby="hint-boundaries"></textarea>
+                    <button class="fullscreen-btn" onclick="toggleFS('boundaries')" aria-label="Expandir Limites &amp; Estilo para ecrã inteiro">⛶ Ecrã Inteiro</button>
+                </div>
+
+                <hr aria-hidden="true">
+
+                <div class="input-container" id="example-container" style="display:none;">
+                    <label for="example"># EXEMPLO</label>
+                    <span id="hint-example" class="hint">Um exemplo ilustrativo do formato ou conteúdo esperado.</span>
+                    <textarea id="example" placeholder="Por exemplo..."
+                        aria-describedby="hint-example"></textarea>
+                    <button class="fullscreen-btn" onclick="toggleFS('example')" aria-label="Expandir Exemplo para ecrã inteiro">⛶ Ecrã Inteiro</button>
+                </div>
+                <button id="example-toggle-btn" class="example-toggle-btn" onclick="toggleExample()"
+                    aria-expanded="false" aria-controls="example-container">
+                    + Adicionar Exemplo <span style="font-weight:400; opacity:0.7;">(opcional)</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="preview-panel" aria-label="Pré-visualização do prompt">
+            <div class="panel-header">
+                Pré-visualização do Prompt
+                <span id="save-status" aria-live="polite" aria-atomic="true">Guardado</span>
+            </div>
+            <div class="panel-scroll" style="background-color: #fcfcfc;">
+                <div id="preview-body" class="preview-body" role="region" aria-label="Prompt gerado" aria-live="polite" aria-atomic="true"></div>
+                <div id="prompt-stats" class="prompt-stats" aria-live="polite" aria-atomic="true"></div>
+            </div>
+            <div class="actions">
+                <button class="btn btn-copy" onclick="copyToClipboard()" title="Copiar para a área de transferência (Ctrl+Shift+C / ⌘⇧C)"
+                    aria-label="Copiar prompt para a área de transferência">Copiar para a Área de Transferência</button>
+                <button class="btn btn-download" onclick="downloadPrompt()"
+                    aria-label="Exportar prompt como ficheiro Markdown">Exportar .md</button>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script>
+    const fields = ['draft', 'persona', 'context', 'objective', 'audience', 'boundaries', 'example'];
+
+    const HIDEABLE_FIELDS = [
+        { id: 'persona',    label: 'Persona/Papel',      heading: '# PERSONA/PAPEL' },
+        { id: 'context',    label: 'Contexto',            heading: '# CONTEXTO' },
+        { id: 'objective',  label: 'Objetivo',            heading: '# OBJETIVO' },
+        { id: 'audience',   label: 'Audiência',           heading: '# AUDIÊNCIA' },
+        { id: 'boundaries', label: 'Limites & Estilo',    heading: '# LIMITES & ESTILO' },
+    ];
+    const hiddenFields = new Set();
+
+    window.onload = () => {
+        fields.forEach(id => {
+            const saved = localStorage.getItem('igec_pt_' + id);
+            if (saved) document.getElementById(id).value = saved;
+
+            document.getElementById(id).addEventListener('input', () => {
+                updatePreview();
+                saveLocal(id);
+            });
+        });
+        // Keyboard shortcut: Ctrl/Cmd + Shift + C → Copy to Clipboard
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'C') {
+                e.preventDefault();
+                copyToClipboard();
+            }
+        });
+
+        // Restore hidden field state
+        HIDEABLE_FIELDS.forEach(({ id, label }) => {
+            if (localStorage.getItem('igec_pt_' + id + '_hidden') === 'true') {
+                hiddenFields.add(id);
+                applyHiddenState(id, label, true);
+            }
+        });
+
+        // Restore example visibility
+        if (localStorage.getItem('igec_pt_example_visible') === 'true') {
+            document.getElementById('example-container').style.display = 'block';
+            const btn = document.getElementById('example-toggle-btn');
+            btn.textContent = '− Remover Exemplo';
+            btn.classList.add('active');
+            btn.setAttribute('aria-expanded', 'true');
+        }
+        updatePreview();
+    };
+
+    function applyHiddenState(id, label, isHidden) {
+        const container = document.getElementById('container-' + id);
+        const btn = document.getElementById('hide-btn-' + id);
+        container.classList.toggle('field-hidden', isHidden);
+        btn.setAttribute('aria-pressed', isHidden ? 'true' : 'false');
+        btn.setAttribute('aria-label', isHidden
+            ? 'Mostrar ' + label + ' no prompt'
+            : 'Ocultar ' + label + ' do prompt');
+    }
+
+    function toggleHide(id, label) {
+        const isNowHidden = !hiddenFields.has(id);
+        isNowHidden ? hiddenFields.add(id) : hiddenFields.delete(id);
+        localStorage.setItem('igec_pt_' + id + '_hidden', isNowHidden ? 'true' : 'false');
+        applyHiddenState(id, label, isNowHidden);
+        updatePreview();
+        announce(isNowHidden ? label + ' ocultado do prompt.' : label + ' incluído no prompt.');
+    }
+
+    function updatePreview() {
+        const segments = HIDEABLE_FIELDS
+            .filter(({ id }) => !hiddenFields.has(id))
+            .map(({ id, heading }) => {
+                const val = document.getElementById(id).value
+                    || '(' + heading.slice(2) + ' não definido)';
+                return heading + '\n' + val;
+            });
+
+        const exampleVisible = document.getElementById('example-container').style.display !== 'none';
+        if (exampleVisible) {
+            const e = document.getElementById('example').value || '(EXEMPLO não definido)';
+            segments.push('# EXEMPLO\n' + e);
+        }
+
+        const template = segments.join('\n\n');
+        const highlighted = template.replace(/(# [A-ZÀ-Ú &\/]+)/g, '<span class="tag-h1">$1</span>');
+        document.getElementById('preview-body').innerHTML = highlighted;
+
+        const words = template.trim().split(/\s+/).filter(Boolean).length;
+        const chars = template.length;
+        document.getElementById('prompt-stats').textContent =
+            `${words} palavras · ${chars.toLocaleString()} caracteres`;
+    }
+
+    function announce(msg) {
+        const el = document.getElementById('a11y-announce');
+        el.textContent = '';
+        // Small delay so screen readers re-announce even identical text
+        setTimeout(() => { el.textContent = msg; }, 50);
+    }
+
+    function saveLocal(id) {
+        localStorage.setItem('igec_pt_' + id, document.getElementById(id).value);
+        const status = document.getElementById('save-status');
+        status.innerText = "A guardar...";
+        status.style.color = "#f57c00"; /* darkened amber for contrast on #fafafa */
+
+        clearTimeout(window.saveTimer);
+        window.saveTimer = setTimeout(() => {
+            status.innerText = "Guardado no browser";
+            status.style.color = "#2e7d32"; /* darkened green for WCAG AA */
+        }, 1000);
+    }
+
+    function toggleFS(id) {
+        const el = document.getElementById(id);
+        el.classList.toggle('fullscreen-active');
+        if (el.classList.contains('fullscreen-active')) {
+            el.focus();
+            // Trap focus: Escape exits fullscreen
+            el.onkeydown = (e) => { if (e.key === "Escape") toggleFS(id); };
+
+            const exitBtn = document.createElement('button');
+            exitBtn.className = 'fs-exit-btn';
+            exitBtn.id = 'fs-exit-btn';
+            exitBtn.innerHTML = '&#x2715; Voltar à Vista Normal';
+            exitBtn.setAttribute('aria-label', 'Sair do ecrã inteiro e voltar à vista normal');
+            exitBtn.onclick = () => toggleFS(id);
+            // Keep Tab focus inside fullscreen (textarea ↔ exit button)
+            exitBtn.onkeydown = (e) => {
+                if (e.key === 'Tab') { e.preventDefault(); el.focus(); }
+                if (e.key === 'Escape') toggleFS(id);
+            };
+            el.onkeydown = (e) => {
+                if (e.key === 'Escape') toggleFS(id);
+                if (e.key === 'Tab' && !e.shiftKey) { e.preventDefault(); exitBtn.focus(); }
+            };
+            document.body.appendChild(exitBtn);
+            announce('Modo ecrã inteiro. Prima Escape ou Tab para aceder ao botão de saída.');
+        } else {
+            const exitBtn = document.getElementById('fs-exit-btn');
+            if (exitBtn) exitBtn.remove();
+            el.onkeydown = null;
+            announce('Voltou à vista normal.');
+        }
+    }
+
+    function toggleExample() {
+        const container = document.getElementById('example-container');
+        const btn = document.getElementById('example-toggle-btn');
+        const isVisible = container.style.display !== 'none';
+        if (isVisible) {
+            container.style.display = 'none';
+            btn.innerHTML = '+ Adicionar Exemplo <span style="font-weight:400; opacity:0.7;">(opcional)</span>';
+            btn.classList.remove('active');
+            btn.setAttribute('aria-expanded', 'false');
+            localStorage.setItem('igec_pt_example_visible', 'false');
+            announce('Secção de exemplo ocultada.');
+        } else {
+            container.style.display = 'block';
+            btn.textContent = '− Remover Exemplo';
+            btn.classList.add('active');
+            btn.setAttribute('aria-expanded', 'true');
+            localStorage.setItem('igec_pt_example_visible', 'true');
+            document.getElementById('example').focus();
+            announce('Secção de exemplo mostrada.');
+        }
+        updatePreview();
+    }
+
+    function copyToClipboard() {
+        const text = document.getElementById('preview-body').innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            const btn = document.querySelector('.btn-copy');
+            const originalText = btn.innerText;
+            btn.innerText = "✓ Copiado!";
+            announce('Prompt copiado para a área de transferência.');
+            setTimeout(() => btn.innerText = originalText, 2000);
+        });
+    }
+
+    function downloadPrompt() {
+        const text = document.getElementById('preview-body').innerText;
+        const blob = new Blob([text], { type: 'text/markdown' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `prompt_${new Date().toISOString().split('T')[0]}.md`;
+        a.click();
+    }
+
+    function resetForm() {
+        if(confirm("Tem a certeza de que pretende apagar todos os dados? Esta ação não pode ser desfeita.")) {
+            fields.forEach(id => {
+                document.getElementById(id).value = '';
+                localStorage.removeItem('igec_pt_' + id);
+            });
+            HIDEABLE_FIELDS.forEach(({ id, label }) => {
+                hiddenFields.delete(id);
+                localStorage.removeItem('igec_pt_' + id + '_hidden');
+                applyHiddenState(id, label, false);
+            });
+            document.getElementById('example-container').style.display = 'none';
+            const btn = document.getElementById('example-toggle-btn');
+            btn.innerHTML = '+ Adicionar Exemplo <span style="font-weight:400; opacity:0.7;">(opcional)</span>';
+            btn.classList.remove('active');
+            localStorage.removeItem('igec_pt_example_visible');
+            updatePreview();
+        }
+    }
+</script>
+
+</body>
+</html>
