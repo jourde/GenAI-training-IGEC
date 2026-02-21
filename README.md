@@ -7,6 +7,7 @@ François Jourde - Digital Education Expert - [Office of the Secretary-General o
 
 ## Slide Deck
 1. Open the slide deck interface [at this link](https://jourde.github.io/learning-designer/slidedeck.html).
-2. Upload in the interface the provided JSON file.
+2. Upload the provided JSON file to the interface.
 ## Quick links
-- [simple prompt builder](https://jourde.github.io/GenAI-training-IGEC/activities/simple-prompt-builder.html)
+- [Simple Prompt Builder](https://jourde.github.io/GenAI-training-IGEC/activities/simple-prompt-builder.html)
+- [Construtor de prompts para IGEC](https://jourde.github.io/GenAI-training-IGEC/activities/construtor_prompts_IGEC.html) (prototype)
