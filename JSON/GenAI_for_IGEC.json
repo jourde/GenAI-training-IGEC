@@ -1,7 +1,7 @@
 {
   "version": "1.8",
   "schemaVersion": 2,
-  "exportedAt": "2026-02-22T19:16:04.296Z",
+  "exportedAt": "2026-02-24T13:08:19.772Z",
   "keyParams": {
     "title": "Generative AI for IGEC",
     "description": "- **Main Goal**: This 3-day training develops IGEC staff's digital competences, enabling them to work confidently, responsibly, and efficiently with generative AI. Participants will progress from a foundational understanding of AI technology and governance to practical mastery of prompting techniques, RAG-based document analysis, and the creation of structured outputs for professional activities. A critical objective is to establish organisational capacity through the collaborative development of shared prompt libraries that ensure consistency across IGEC teams, capture expert methodologies, and support staff onboarding. Staff will enhance their capability to support schools in responsible AI adoption whilst developing critical awareness of appropriate use, limitations, ethical implications, and auditability requirements. The expected outcome is that IGEC will integrate AI-enhanced workflows into inspection practices whilst preserving professional judgement, transparency, and high standards of educational quality and integrity.\n- **Delivery mode**: Days 1 and 2 are delivered in a hybrid format, whilst Day 3 is reserved for in-person collaborative work.\n- The **methodology **integrates peer learning through group work, case study analysis, hands-on practice and reflection.\n\nN.B.: The trainer is using a non-traditional approach: not a standard slide deck, but an HTML file that participants can browse independently (projected and distributed). They can share the full set of slides/outputs at the end of a webinar/session if required, even though the primary delivery format is not PowerPoint-based.",
@@ -49,7 +49,7 @@
     "learningTimeUnit": "hours",
     "designedTimeUnit": "hours",
     "learningTimeVal": "21",
-    "designedTimeVal": "15.1",
+    "designedTimeVal": "17.8",
     "durationToleranceRelPct": "5",
     "name": "Generative AI for IGEC",
     "authors": "François Jourde",
@@ -64,16 +64,18 @@
     "cohortSize": "30",
     "aimsItems": [],
     "outcomesTextItems": [],
+    "nomExport": "",
     "outcomes": [],
     "competences": [],
     "competencesTransversales": []
   },
   "activities": [
     {
-      "id": "module_1d00a4d0-7a97-4fe3-a3d8-e0649df973a3",
+      "id": "module_2b3e3abc-4985-4373-b5e1-fe98972cee7e",
       "ignored": false,
       "title": "Day 1 -  From Foundations to Governance: Establishing AI Literacy",
       "description": "- Establish a shared baseline in AI and generative AI (core concepts, capabilities, limitations).\n- Introduce responsible-use and governance foundations (risk, accountability, privacy/data protection, transparency).\n- Prepare participants for the hands-on work in Days 2–3 through shared language and expectations.\n- Modality: blended (participants in person and online).",
+      "moduleStartTime": "",
       "targetTime": "6",
       "targetUnit": "3600",
       "learningAimsModule": [
@@ -84,7 +86,7 @@
       ],
       "moments": [
         {
-          "id": "moment_a77d26b4-93bb-4629-b638-3f42d4893b2c",
+          "id": "moment_3df72f59-0df8-423e-90a1-e6f60b77d0a0",
           "ignored": false,
           "title": "10:30-13:00 - AI Technology and Governance Frameworks",
           "description": "Introduces core generative AI concepts (what it is, how it works, and the practical implications of its limits), then frames the main governance drivers (data protection, EU regulation, intellectual property, and accountability). The aim is a shared vocabulary and a realistic understanding of opportunities and risks before moving into competence development.",
@@ -92,14 +94,14 @@
           "targetUnit": "60",
           "subMoments": [
             {
-              "id": "submoment_1e746983-deef-4e02-8cd4-bb6b241087f3",
+              "id": "submoment_b89d5936-51b9-48ec-a145-e45dff53553c",
               "ignored": false,
               "title": "Welcome and Programme Overview",
               "targetTime": "25",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_c9ed6444-cac9-437d-83d4-9ccd0d335b00",
+                  "id": "step_6371bdc0-66e9-4009-9a74-2c33eba5bc6a",
                   "ignored": false,
                   "title": "Welcome page - Logos",
                   "type": "discussion",
@@ -118,7 +120,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_825322fb-d038-4ba8-94b6-6acae58c60e7",
+                  "id": "step_f02c6d5c-5922-4d0d-9982-8cfa330904ed",
                   "ignored": false,
                   "title": "Open the html slide deck",
                   "type": "discussion",
@@ -138,7 +140,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_0831c374-e4a1-4d7b-8117-6873618a4201",
+                  "id": "step_37ad94a4-bcaa-4b2b-85c5-2fb065fb6230",
                   "ignored": false,
                   "title": "Expectations (+ optional GenAI analysis of inputs)",
                   "type": "discussion",
@@ -157,7 +159,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_a1485f4e-549c-428e-8975-cb5fd88ce176",
+                  "id": "step_cf2e2714-d74b-4822-9d05-f3b65520bdee",
                   "ignored": false,
                   "title": "Presentation of the training plan",
                   "type": "acquisition",
@@ -178,7 +180,7 @@
                   "evaluationSuivi": "Verify that all participants can access the HTML file successfully. Note any questions that reveal misconceptions about training scope or approach."
                 },
                 {
-                  "id": "step_80951987-2c10-4a44-8efa-20fb31bc3356",
+                  "id": "step_35f60d87-4f83-4d69-80c3-072faa249653",
                   "ignored": false,
                   "title": "Presentation of the trainer",
                   "type": "acquisition",
@@ -199,14 +201,14 @@
               ]
             },
             {
-              "id": "submoment_fae7b5d0-5bd1-4970-840a-96de6e84ea96",
+              "id": "submoment_1d1cda86-4450-43de-972d-c06e11b8969f",
               "ignored": false,
               "title": "Generative AI: Core concepts and capabilities",
               "targetTime": "60",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_603b6dda-ac39-41d8-b1ca-24a2f9c3e576",
+                  "id": "step_60ce195e-1073-4a96-8f9b-996513d883fa",
                   "ignored": false,
                   "title": "AI definition - WordCloud",
                   "type": "discussion",
@@ -225,13 +227,10 @@
                   "trainerTasks": "Launch Wooclap word cloud activity. Allow 2-3 minutes for submission. Display results prominently. Facilitate debrief by identifying: common themes, technical vs. popular culture associations, hopes and fears, knowledge gaps. Use this diagnostic information to calibrate subsequent explanations. Bridge from participants' existing mental models to more accurate technical understanding.",
                   "presentation": "# What does ‘AI’ mean?\nLet's build a **wordcloud**.\n1. Open [wooclap.com](https://app.wooclap.com/IGEC26) (code: IGEC26)\n2. Give your answer to: **One keyword for what AI is…**",
                   "notes": "This is a critical diagnostic moment. Expect a mixture of science fiction references, concerns about job displacement, and varying technical accuracy. Validate all contributions whilst gently correcting misconceptions. Use the word cloud as a reference point throughout Day 1, returning to evolve understanding. The visual, collaborative nature reduces anxiety about \"correct\" answers.",
-                  "evaluationSuivi": "Diagnostic assessment of prior knowledge and attitudes towards AI. Document predominant themes for comparison at training conclusion. Identify participants who may need additional support or who have advanced knowledge.",
-                  "toolsMaterialsTargets": [
-                    "EdTech / Audience Response Systems — Wooclap"
-                  ]
+                  "evaluationSuivi": "Diagnostic assessment of prior knowledge and attitudes towards AI. Document predominant themes for comparison at training conclusion. Identify participants who may need additional support or who have advanced knowledge."
                 },
                 {
-                  "id": "step_4eda7bc3-64e7-4c80-a914-468f2f4ef14c",
+                  "id": "step_f2ea8174-18da-43cc-9ac5-9d445418047a",
                   "ignored": false,
                   "title": "AI and GenAI definitions",
                   "type": "discussion",
@@ -250,7 +249,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_4c4b8b11-90b5-47ce-829f-b191b75ee839",
+                  "id": "step_233844f3-75a1-45f2-8a9c-ee10b96b8b8e",
                   "ignored": false,
                   "title": "AI typology",
                   "type": "discussion",
@@ -269,7 +268,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_30e4878b-5708-45f1-8c1c-c6e9da33e3dc",
+                  "id": "step_cb8b7144-64b9-47f4-bef3-77eba6dcc482",
                   "ignored": false,
                   "title": "AI - Historical overview & AI approaches",
                   "type": "acquisition",
@@ -289,7 +288,7 @@
                   "evaluationSuivi": "Check understanding through quick verbal checks or show-of-hands questions: \"Which approach is more like how humans actually learn?\" Monitor for glazed expressions indicating information overload."
                 },
                 {
-                  "id": "step_1ed2d6a3-d35a-45f6-8ede-07cdb7a4ee8b",
+                  "id": "step_f52b4a5e-bf06-487f-96e2-272433dc7654",
                   "ignored": false,
                   "title": "The Arrival of LLM-based GenAI: A conversational transmutation tool",
                   "type": "acquisition",
@@ -309,7 +308,7 @@
                   "evaluationSuivi": "Assess comprehension through observation of reactions to live demonstrations. Note which functionalities generate most interest or scepticism—this indicates relevance to participants' needs."
                 },
                 {
-                  "id": "step_e2aad5fa-2621-4d08-9907-f26886fe9cea",
+                  "id": "step_8618caf3-9315-443b-ac51-48270c654c67",
                   "ignored": true,
                   "title": "Transformer explainer visualisation",
                   "type": "acquisition",
@@ -326,13 +325,10 @@
                   "description": "Visualise an LLM in action (GPT-2) poloclub.github.io: https://poloclub.github.io/transformer-explainer/\n- Observe how the model predicts the next word based on patterns in training data.\n- Discuss observations: What surprises them? What confirms their understanding? What remains mysterious?\n\n- Explain key concepts: tokens, attention mechanisms, probability-based selection.\n- Emphasise that the model has no \"understanding\"—it's sophisticated pattern-matching. -> Connect to previous content: this is connectionist AI visualised.\n- Keep technical explanation accessible; focus on building intuition rather than deep technical knowledge.",
                   "presentation": "# LLMs = prediction engines\n- Core behaviour: predict the next token given context\n- Outputs are probabilistic (≠ deterministic reasoning)\n- Key unit: token (≈word pieces)\n---\n# Interactive explainer\n ➜ [transformer-explainer](https://poloclub.github.io/transformer-explainer/)\n- **Context window**: what the model can ‘see’ at once\n- **Probability distribution** over candidate tokens\n- **Temperature / randomness**: variability vs stability",
                   "notes": "This visualisation is powerful for demystifying AI—it makes the \"black box\" transparent. However, it can be overwhelming. Frame it as: \"You don't need to understand every detail, but seeing inside helps you understand why GenAI sometimes produces unexpected results.\" The key takeaway: LLMs predict based on patterns, not meaning. This explains both their power (pattern recognition across vast data) and limitations (no true comprehension, potential for plausible-sounding nonsense). Allow silence for absorption—this is cognitively demanding content.",
-                  "evaluationSuivi": "Monitor engagement with the visualisation. Note questions or comments that reveal understanding or confusion about probabilistic nature of LLMs. Assess whether participants grasp the non-deterministic, statistical nature of generation.",
-                  "toolsMaterialsTargets": [
-                    "Web / Simulation — https://poloclub.github.io/transformer-explainer/"
-                  ]
+                  "evaluationSuivi": "Monitor engagement with the visualisation. Note questions or comments that reveal understanding or confusion about probabilistic nature of LLMs. Assess whether participants grasp the non-deterministic, statistical nature of generation."
                 },
                 {
-                  "id": "step_e6624b63-fadd-41bc-ba20-d8b7fc748e37",
+                  "id": "step_72308736-ca0f-416b-88e0-76e05df5a4df",
                   "ignored": false,
                   "title": "LLM training stages and machenery (\"factory floor\")",
                   "type": "acquisition",
@@ -352,7 +348,7 @@
                   "evaluationSuivi": "Check understanding through questioning: \"Why might an LLM trained primarily on English-language internet content have different knowledge about Portuguese education policies?\" Assess whether participants grasp the connection between training process and model behaviour."
                 },
                 {
-                  "id": "step_ebb4c863-6f94-4205-b6f5-32c9543d4c7c",
+                  "id": "step_07033266-728c-40a9-94dc-f1691c4a0cc3",
                   "ignored": false,
                   "title": "Environmental aspects",
                   "type": "acquisition",
@@ -368,11 +364,10 @@
                   "evaluation": "Aucune",
                   "description": "Digital sobriety: The environmental impact of digital technology in general, and AI in particular, calls for vigilance in terms of sustainable development. The use of AI should be part of a digital sobriety approach: the aim is to avoid dependence on AI tools and to raise awareness among stakeholders of the energy costs associated with certain algorithmic processes.",
                   "presentation": "## Environmental footprint: Where it comes from\n- Training (large compute) vs inference (everyday use)\n- Data centres: energy mix, cooling, hardware lifecycle\n- Efficiency varies widely by model and usage pattern\n---\n## Mitigation Levers (Practical)\n- Use ‘right-sized’ models for the task\n- Short prompts; reuse context; avoid unnecessary regeneration\n- Prefer providers with credible energy/efficiency reporting",
-                  "linksReferences": "Slides de Romain: \nhttps://sup-ubs.fr/etudiants-module-de-decouverte-des-ia-generatives/#h5pbookid=5&chapter=h5p-interactive-book-chapter-64155344-28df-46f0-bc65-fda49326ffc6&section=h5p-interactive-book-section-06fc34f5-a56a-412f-aacf-2536cb7e5449&headerNumber=0",
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_15725936-c17f-463e-98e7-1994fcc81f5b",
+                  "id": "step_3e538e2c-979a-4771-8018-fef206d0d5cb",
                   "ignored": false,
                   "title": "Main models",
                   "type": "acquisition",
@@ -388,20 +383,19 @@
                   "evaluation": "Aucune",
                   "description": "A brief orientation to the current landscape of leading GenAI models, using the Arena.ai leaderboard as a live reference. The aim is to give participants a realistic sense of the diversity of available tools — beyond Copilot — and to contextualise the choice of Microsoft Copilot as the institutional tool for this training. Keep this overview light; it will evolve rapidly and the leaderboard is the most reliable up-to-date source.",
                   "presentation": "-> [Arena.ai: Leaderboard Overview](https://arena.ai/fr/leaderboard): See how leading models stack up across text, image, vision, and beyond.",
-                  "linksReferences": "Slides de Romain: \nhttps://sup-ubs.fr/etudiants-module-de-decouverte-des-ia-generatives/#h5pbookid=5&chapter=h5p-interactive-book-chapter-64155344-28df-46f0-bc65-fda49326ffc6&section=h5p-interactive-book-section-06fc34f5-a56a-412f-aacf-2536cb7e5449&headerNumber=0",
                   "evaluationSuivi": "Aucune"
                 }
               ]
             },
             {
-              "id": "submoment_fd66136f-79eb-437e-8e4e-4968b780a2f9",
+              "id": "submoment_1d49d782-4d14-4f05-b760-541ba9b2dc1e",
               "ignored": false,
               "title": "Break",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_b3724f73-f2a9-414a-af58-a04d82f9d7fe",
+                  "id": "step_f64c95ca-ed82-4ed9-aaee-d91d786d9fa9",
                   "ignored": false,
                   "title": "Break",
                   "type": "none",
@@ -422,14 +416,14 @@
               ]
             },
             {
-              "id": "submoment_4c8f32d9-3589-4acc-a4b8-9bfd1a690908",
+              "id": "submoment_da88bfb2-4f02-4513-b05a-e72f598d4e5f",
               "ignored": false,
               "title": "Navigating AI Governance: Legal, Ethical and Regulatory Landscapes",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_95e3be4d-23bc-4dca-bf18-bb49d7ea2f26",
+                  "id": "step_834a09c5-b007-4b0b-856f-985798b1cf16",
                   "ignored": false,
                   "title": "AI as a disruption",
                   "type": "none",
@@ -448,7 +442,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_52b7ffe1-1817-4fd0-b3de-854ee06e7071",
+                  "id": "step_cf119085-e0f9-452f-81fd-70555f6c257d",
                   "ignored": false,
                   "title": "GDPR & AI Act",
                   "type": "none",
@@ -462,10 +456,11 @@
                   "place": "situ",
                   "time": "sync",
                   "evaluation": "Aucune",
-                  "presentation": "| Regulation | Primary risk focus                                                      |\n| --- | --- |\n| GDPR       | Privacy and broader rights/freedoms risks from personal data processing |\n| AI Act     | Health, safety, and fundamental rights risks from AI systems            |"
+                  "presentation": "| Regulation | Primary risk focus                                                      |\n| --- | --- |\n| GDPR       | Privacy and broader rights/freedoms risks from personal data processing |\n| AI Act     | Health, safety, and fundamental rights risks from AI systems            |",
+                  "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_b2b751fb-a02f-4d5f-8b58-0b6542ae53f2",
+                  "id": "step_62ebd904-c5d3-45ac-b777-f0e04c9fa1af",
                   "ignored": false,
                   "title": "GDPR",
                   "type": "acquisition",
@@ -484,7 +479,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_87999965-38df-4149-af32-d0e68e1ffe50",
+                  "id": "step_8fd725cd-bc48-4173-8295-a4fd091b6cf8",
                   "ignored": false,
                   "title": "EU AI Act",
                   "type": "acquisition",
@@ -504,7 +499,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_ff1f8d5f-13b2-4ddc-835a-e4203ae42c0d",
+                  "id": "step_3e023d73-c672-498b-8f4d-f6f6847a1af1",
                   "ignored": false,
                   "title": "Intellectual Property",
                   "type": "acquisition",
@@ -525,7 +520,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_0fd627be-e634-488a-8a78-af249f159010",
+                  "id": "step_9567f23f-de25-415f-9aa8-6d542951269f",
                   "ignored": false,
                   "title": "How to give credit to GenAI?",
                   "type": "acquisition",
@@ -551,7 +546,7 @@
           ]
         },
         {
-          "id": "moment_5d89249f-2383-4d8a-a793-d50e87dc7cd8",
+          "id": "moment_76233b34-9d93-41e5-a138-fb8198567f08",
           "ignored": false,
           "title": "13:00-14:00 - 🥦 LUNCH",
           "description": "Lunch break. Informal networking.",
@@ -559,7 +554,7 @@
           "targetUnit": "3600"
         },
         {
-          "id": "moment_7d06f547-5481-4daa-898c-5bc72ed962ce",
+          "id": "moment_3c028b05-5757-4336-9661-510c3403513a",
           "ignored": false,
           "title": "14:00-17:30 - Developing Professional AI Competences",
           "description": "Using competence frameworks to structure professional practice with AI, focusing on human–AI interaction and decision-making: when to delegate, when to augment, and when to redesign work (transformation).",
@@ -567,14 +562,14 @@
           "targetUnit": "60",
           "subMoments": [
             {
-              "id": "submoment_dc7765ec-f8f5-4490-b891-e785847d4876",
+              "id": "submoment_3dfb05f9-c743-4cb0-a5d1-b3e44dc53fd5",
               "ignored": false,
               "title": "From “AI as a Tool” to “AI as a Partner”: Delegation, Augmentation, Transformation",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_318ad7af-88ff-47a1-af9e-942c3d0adc7d",
+                  "id": "step_75cb9ce8-9391-4765-b61b-303aa55ace22",
                   "ignored": false,
                   "title": "GenAI and Human Skills",
                   "type": "acquisition",
@@ -591,11 +586,10 @@
                   "description": "Draws on the OECD AI Capability Indicators framework to examine how AI capabilities compare to human abilities, identifying areas where humans remain superior and where the risk of over-reliance (the \"mirage of false mastery\") is greatest. Introduces the concept of hybrid human–AI competence and the importance of maintaining metacognitive skills alongside AI use. Reference Molenaar (2022, 2024) if participants wish to explore the research base further.",
                   "presentation": "## AI competences and human competences\nOECD, [https://aicapabilityindicators.oecd.org](https://aicapabilityindicators.oecd.org).\n- Framework for monitoring AI capabilities in relation to human abilities.\n- Enables the identification of areas in which humans remain superior and that merit priority educational investment.\n---\n## Some concerns\n- **Cognitive offloading** and **de-skilling**: research has begun to quantify the **risks associated with reduced human cognition and metacognition** in contexts of intensive AI use.\n- “**mirage of false mastery**”: the impressive outputs generated by AI mask the underdevelopment of essential skills, including hybrid human-AI skills (OECD. Digital Education Outlook 2026: Effective Uses of Generative AI in Education)",
                   "notes": "To be explored: paradigm of hybrid human-AI collaboration (Molenaar, 2022, 2024).\n- Molenaar, I. (2022). The concept of hybrid human-AI regulation: Exemplifying how to support young learners' self-regulated learning. Computers and Education: Artificial Intelligence, 3, 100070. https://doi.org/10.1016/j.caeai.2022.100070 \nMolenaar, I. (2022). Towards hybrid human‐AI learning technologies. European Journal of Education, 57/4, pp. 632-645. https://doi.org/10.1111/ejed.12527 \n- Molenaar, I. (2024). Human-AI collaboration in education: The hybrid future. Inaugural Speech RU. Radboud University, Nijmegen. https://hdl.handle.net/2066/316067\n\n- OECD. (2026). Digital Education Outlook 2026: Effective Uses of Generative AI in Education. OECD Publishing:\n  - Recent empirical research has begun to quantify the risks associated with reduced human cognition and metacognition in contexts of intensive AI use (OECD, 2026, p. 52).\n  - the “mirage of false mastery”, whereby the impressive outputs generated by AI mask the underdevelopment of essential skills, including hybrid human-AI skills (OECD, 2026, p. 57).",
-                  "linksReferences": "https://aicapabilityindicators.oecd.orghttps://aicapabilityindicators.oecd.org",
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_f721cc31-4ca9-4143-9765-658a20c5ca91",
+                  "id": "step_767d80d0-c3dd-4152-84c9-3c9e11988ae9",
                   "ignored": false,
                   "title": "Delegation - augmentation - tranformation",
                   "type": "acquisition",
@@ -612,11 +606,10 @@
                   "description": "Understand delegation (substitution), collaboration (assistance), and transformation (amplification) paradigms of AI-human interaction. Explore the three paradigms of AI-human interaction and discuss implications for professional practices.",
                   "presentation": "## Three ways to use GenAI\n| GenAI as a…        | GenAI role             | Gain                                                                                                                                                | Risk                                        |\n|---|---|---|---|\n| **prosthesis**     | substitution           | immediate comfort (cognitive offloading)                                                                                                            | technological dependency/submission; skill decay |\n| **orthosis**       | collaboration          | skill reinforcement; co-intelligence                                                                                                                | …                                           |\n| **auxesis**        | radical amplification  | multiplier of human capabilities, enabling the user to achieve results they could never have imagined obtaining on their own, even with traditional resources; GenAI can transcend structural limits of human cognition by processing volumes of parameters/data and complexities otherwise inaccessible | …                                           |\n\n<br>\nN.B.:\n- A **prosthesis** replaces a failing or missing function.\n- An **orthosis** supports and improves an existing function.\n- An **auxesis** (gr. *auxēsis*:  \"growth\" or \"increase\") amplifies or increases an existing capacity without substituting for, or correcting, a function.\nAdapted from [Las Vergnas, O., Jeunesse, C. et Adinda, D. (2025). De la délégation à l’amplification : quand l’IA générative reconfigure nos façons d’apprendre. Action publique. Recherche et pratiques, 25(2), 23-36.](https://shs.cairn.info/revue-action-publique-recherche-et-pratiques-2025-2-page-23).",
                   "notes": "To be explored: paradigm of hybrid human-AI collaboration (Molenaar, 2022, 2024).\n- Molenaar, I. (2022). The concept of hybrid human-AI regulation: Exemplifying how to support young learners' self-regulated learning. Computers and Education: Artificial Intelligence, 3, 100070. https://doi.org/10.1016/j.caeai.2022.100070 \nMolenaar, I. (2022). Towards hybrid human‐AI learning technologies. European Journal of Education, 57/4, pp. 632-645. https://doi.org/10.1111/ejed.12527 \n- Molenaar, I. (2024). Human-AI collaboration in education: The hybrid future. Inaugural Speech RU. Radboud University, Nijmegen. https://hdl.handle.net/2066/316067\n\n- OECD. (2026). Digital Education Outlook 2026: Effective Uses of Generative AI in Education. OECD Publishing:\n  - Recent empirical research has begun to quantify the risks associated with reduced human cognition and metacognition in contexts of intensive AI use (OECD, 2026, p. 52).\n  - the “mirage of false mastery”, whereby the impressive outputs generated by AI mask the underdevelopment of essential skills, including hybrid human-AI skills (OECD, 2026, p. 57).",
-                  "linksReferences": "https://aicapabilityindicators.oecd.orghttps://aicapabilityindicators.oecd.org",
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_f445e08f-69de-4cc5-b073-61c280d75e9b",
+                  "id": "step_665172df-d331-42ff-a7a6-033079e43b96",
                   "ignored": false,
                   "title": "Categorise 3 inspection tasks + debrief",
                   "type": "collaboration",
@@ -638,14 +631,14 @@
               ]
             },
             {
-              "id": "submoment_5608f770-f65c-4d91-a78f-c57b0c186f34",
+              "id": "submoment_f3dda14c-bf9b-4d8f-8ad1-0b168518e7f1",
               "ignored": true,
               "title": "Governance Frameworks",
               "targetTime": "15",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_37d76c80-90c8-410a-91ca-aef4e02edbac",
+                  "id": "step_d29da948-468f-476b-800a-3c5f969d97e1",
                   "ignored": true,
                   "title": "Example: Framework for the use of GenAI in the European Schools",
                   "type": "acquisition",
@@ -669,14 +662,14 @@
               ]
             },
             {
-              "id": "submoment_f8d3ff09-1811-4321-b24a-112125a17f22",
+              "id": "submoment_64605b0b-8451-4614-a5bb-996ffbc336c2",
               "ignored": false,
               "title": "DigComp 3.0 (EC) — Inspection-Relevant Readings",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_1dec2e85-d20d-4fff-9115-7974e2f7372b",
+                  "id": "step_ff52e2de-bf0e-4f24-b84d-a399bf0b4bae",
                   "ignored": false,
                   "title": "DigComp 3.0: Presentation",
                   "type": "acquisition",
@@ -695,7 +688,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_2b26fb60-502c-4941-ac03-0f8405f41947",
+                  "id": "step_3f735549-1f72-4d8a-996f-b165d2e5a539",
                   "ignored": false,
                   "title": "DigComp 3.0: Activity",
                   "type": "acquisition",
@@ -717,14 +710,14 @@
               ]
             },
             {
-              "id": "submoment_b3600502-14fa-4340-bbb6-7ba6b44f1b54",
+              "id": "submoment_2a0d8f2b-3dd8-41fd-b3ad-5e1d21abe29e",
               "ignored": false,
               "title": "Break",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_f2399feb-d357-4243-9242-5ddef24b2ee5",
+                  "id": "step_bceb9f76-bd2a-4556-b630-4c287c6cf7c1",
                   "ignored": false,
                   "title": "☕️ Break",
                   "type": "none",
@@ -745,14 +738,14 @@
               ]
             },
             {
-              "id": "submoment_476d0696-4be7-4375-aa50-7b517be5ec42",
+              "id": "submoment_bd09b60e-97bd-45af-812c-f98428aa201f",
               "ignored": false,
               "title": "AI Literacy Framework (EC–OECD)",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_c1f8fec1-c134-4f3b-aa77-3f6f93cd467a",
+                  "id": "step_359d4ccf-a842-4d4a-b360-1de0ff3654d1",
                   "ignored": false,
                   "title": "AI litteracy Framework: Presentation",
                   "type": "acquisition",
@@ -774,7 +767,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_5de6ace7-e306-4b98-87d6-2c67948215ba",
+                  "id": "step_7a194f7f-c8b5-4a4a-a0b6-10a2fa398d6f",
                   "ignored": false,
                   "title": "AI litteracy Framework: Activity",
                   "type": "acquisition",
@@ -795,14 +788,14 @@
               ]
             },
             {
-              "id": "submoment_088b16e0-bfb2-4173-be23-efee86ed8812",
+              "id": "submoment_331a618f-5fee-4eba-a5a1-4dc2cd2836e8",
               "ignored": false,
               "title": "Closing",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_143d963c-1b71-49bd-b1b3-9ff560ca8df5",
+                  "id": "step_328c3271-e69a-4c09-98e2-a96424f032e3",
                   "ignored": false,
                   "title": "Day 1 Close: Key Takeaways and Day 2 Preview",
                   "type": "discussion",
@@ -830,10 +823,11 @@
       ]
     },
     {
-      "id": "module_b2ca0f19-1c23-415c-b754-4a0e27150674",
+      "id": "module_cb34242f-d0cf-4941-a547-a2df64b53f07",
       "ignored": false,
       "title": "Day 2 - From Theory to Practice: Working with Copilot and Prompt Engineering",
       "description": "- Day 2 focuses on operational fluency with Microsoft Copilot, advanced prompting techniques including Retrieval-Augmented Generation (RAG), and AI agents in inspection workflows, emphasising safe delegation and human oversight.\n- Day 2 is blended, with participants present in person and online. \n",
+      "moduleStartTime": "",
       "targetTime": "6",
       "targetUnit": "3600",
       "learningAimsModule": [
@@ -844,7 +838,7 @@
       ],
       "moments": [
         {
-          "id": "moment_4ef7061e-04b2-4c71-a417-370cba1740cf",
+          "id": "moment_c36b9e07-5494-4b33-b471-be2cc76db844",
           "ignored": false,
           "title": "10:00-12:30 - Copilot Essentials and Prompting Methods",
           "description": "The morning session moves from theory to hands-on practice, beginning with a guided exploration of the Microsoft Copilot interface and progressing through a structured sequence of prompting techniques — from zero-shot and structured commands to prompting frameworks, in-context learning, and prompt auditing. By the end of this moment, participants should be able to construct, test, and critically evaluate prompts for professional inspection tasks.",
@@ -852,14 +846,14 @@
           "targetUnit": "60",
           "subMoments": [
             {
-              "id": "submoment_e289d886-be6e-4da8-b6ed-8f5ce65e2610",
+              "id": "submoment_571986b2-02ec-47da-976d-6a48b0d3e0e3",
               "ignored": false,
               "title": "Welcome to Day 2",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_ac92cf99-776d-48e5-95a3-146c10a35b69",
+                  "id": "step_eb08f06e-0698-4ce5-a198-959dbb2f3b65",
                   "ignored": false,
                   "title": "Day 2 Kick-off",
                   "type": "acquisition",
@@ -880,14 +874,14 @@
               ]
             },
             {
-              "id": "submoment_dbc615a5-9a77-4f13-886b-133e6863336a",
+              "id": "submoment_eb7998fe-f696-4a38-bbc3-a7668b1f9f13",
               "ignored": false,
               "title": "Microsoft Copilot",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_71bd5bcf-40db-4cce-99b6-2e5355172413",
+                  "id": "step_bb4fefc4-967a-46aa-a7a0-74b6525f3495",
                   "ignored": false,
                   "title": "Microsoft Copilot - Guided exploration of the interface (multmodularity)",
                   "type": "practice",
@@ -905,22 +899,19 @@
                   "tasks": "Test basic GenAI interactions, observe capabilities and limitations, discuss observations with partner and group",
                   "presentation": "## Guided tour\n- Open [https://m365.cloud.microsoft](https://m365.cloud.microsoft/).\n- Follow the guide!\n<br>\n-> You can also always refer to the Microsoft guidance: [learn.microsoft.com/pt-pt/copilot](https://learn.microsoft.com/pt-pt/copilot/)\n---\n## Keyboard shortcuts to use:\n- Use / to mention a person, file, or object to bring it into context\n- Use @ to mention an agent\n- Three dots (…) in top-right corner to access Copilot memory setting",
                   "notes": "- \"Microsoft Copilot is still something of a sticking point: it is marketed into schools as “safe and private“, but it is really just another product built on top of OpenAI’s GPT model. Frustratingly, it’s not even as good as ChatGPT: anyone who has used Copilot on the web will know that the product is far behind other leading models. Essentially, forcing staff to use Copilot is unlikely to work for anyone trying to get the most out of GenAI, and it’s highly likely that they’ll instead turn to ChatGPT, Claude and Gemini and just not tell anyone.\" Leon Furze https://read.readwise.io/read/01kffsqwcd70f4e956wjaj7724",
-                  "evaluationSuivi": "Aucune",
-                  "toolsMaterialsTargets": [
-                    "GenAI / Microsoft — Copilot"
-                  ]
+                  "evaluationSuivi": "Aucune"
                 }
               ]
             },
             {
-              "id": "submoment_fecd160f-6390-4ece-a261-11e2ee25ca4a",
+              "id": "submoment_13e8f734-523e-4792-a849-238addf55c58",
               "ignored": false,
               "title": "Prompting methods (1)",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_d61d3aaf-f51c-4392-91b4-3d3e916684c3",
+                  "id": "step_3b8421c3-2697-4694-994d-36a1b36a6748",
                   "ignored": false,
                   "title": "Prompt: definition",
                   "type": "acquisition",
@@ -936,11 +927,10 @@
                   "evaluation": "Aucune",
                   "description": "Introduces the working definition of a prompt as a natural-language instruction that directs a GenAI tool towards a particular kind of output, drawing on Mollick's characterisation of prompts as \"programmes in prose\". This brief conceptual anchor sets shared vocabulary for all subsequent prompting work. Encourage participants to treat prompting as a dialogue skill rather than a technical coding task.",
                   "presentation": "## What is a prompt?\nA prompt is a **natural-language instruction that directs a GenAI tool to produce a particular kind of output**.\n<br>\n> \"Prompts are basically programs in prose, and do not require any coding experience to write.\" [Mollick, 20.08.2023](https://www.oneusefulthing.org/p/now-is-the-time-for-grimoires)\n<br>\n> \"Chatting is the new programming. [...] In essence, your chat prompt(s) are how you program the AI to do things for you. Instead of needing to write computer code, your written language is how you control the AI.\" [Liu, 04.2023](https://educational-innovation.sydney.edu.au/teaching@sydney/prompt-engineering-for-educators-making-generative-ai-work-for-you/#assessment)",
-                  "linksReferences": "# Command Reference\nAdapted from https://webjeje.eu/theorie-et-pratique-de-lingenierie-de-commandes-structurees/\n\n| Category | Command | Function / Expected Action | Specific Benefit |\n| :--- | :--- | :--- | :--- |\n| **✍️ Writing & Style** | `/STYLE-POLISH` | Syntactic smoothing. | Improves form without betraying the content. |\n| | `/TEXT-SIMPLIFY` | Popularization (12-year-old level). | Makes dense concepts accessible. |\n| | `/TONE-PRO` | Switch to corporate/neutral tone. | Professionalizes a draft. |\n| | `/TONE-ENGAGING` | Switch to dynamic/emotional tone. | Increases marketing impact. |\n| | `/FIX-GRAMMAR` | Strict spelling correction. | Contextual \"Grammar Checker 2.0.\" |\n| | `/TEXT-SHORTEN` | Condensation (-50%). | Synthesis for quick reading. |\n| | `/TEXT-EXPAND` | Argued development. | Enriches points that are too brief. |\n| | `/TITLE-GEN` | Generation of 10 titles. | Fights writer's block. |\n| | `/HOOK-GEN` | Creation of hooks. | Optimizes reader attention. |\n| | `/SYNONYM-LIST` | Search for lexical nuances. | Enriches vocabulary. |\n| **🧠 Analysis & Synthesis** | `/SUM-BULLETS` | Bulleted list summary. | Visual structure of information. |\n| | `/EXTRACT-DATA` | Structured data extraction. | Transforms text into data (Excel). |\n| | `/LOGIC-CHECK` | Logical consistency audit. | Identifies fallacies/contradictions. |\n| | `/COMPARE-TAB` | Comparative table. | Binary decision support. |\n| | `/PROS-CONS` | Pros/Cons analysis. | Balanced weighing of issues. |\n| | `/KEY-TAKEAWAYS` | Extraction of core ideas. | Memorization of essentials. |\n| | `/SENTIMENT-ANALYSIS`| Tone analysis. | Understanding unspoken emotions. |\n| | `/GAP-ANALYSIS` | Identification of gaps. | Spotting what *is not* said. |\n| **🎓 Pedagogy** | `/EXPLAIN-SIMPLE` | Pedagogical analogy. | Intuitive understanding. |\n| | `/EXPLAIN-DEPTH` | Academic explanation. | Expert-level deep dive. |\n| | `/SOCRATIC-MODE` | Maieutics (questions only). | Active learning (student searches). |\n| | `/QUIZ-GEN` | MCQ generation. | Immediate self-assessment. |\n| | `/FLASHCARD` | Q&A pairs. | Spaced repetition (Anki). |\n| | `/ANALOGY-MAKER` | Creation of cross-metaphors. | Powerful memory anchoring. |\n| | `/LESSON-PLAN` | Pedagogical sequencing. | Structured lesson preparation. |\n| | `/GLOSSARY-GEN` | Technical lexicon. | Clarification of jargon. |\n| **💡 Strategy & Ideas** | `/IDEA-STORM` | Volume ideation. | Maximum creative divergence. |\n| | `/DEVILS-ADVOCATE` | Systematic contradiction. | Crash-testing an idea. |\n| | `/SWOT-GEN` | SWOT Matrix. | Standardized strategic analysis. |\n| | `/TARGET-AUDIENCE` | Persona creation. | Empathy with the target. |\n| | `/OBJECTION-KILLER` | Handling objections. | Negotiation preparation. |\n| | `/LATERAL-THINK` | Lateral thinking. | Thinking outside the box. |\n| | `/SCENARIO-PLAN` | Forecasting (3 scenarios). | Risk anticipation. |\n| | `/STEP-BY-STEP` | Operational action plan. | Moving from idea to execution. |\n| **💻 Code & Technical** | `/CODE-EXPLAIN` | Code explanation. | Automatic documentation. |\n| | `/CODE-DEBUG` | Error searching. | Saves development time. |\n| | `/CODE-REFACTOR` | Code optimization. | Cleanup and performance. |\n| | `/CODE-DOC` | Docstring generation. | Facilitates code maintenance. |\n| | `/CODE-CONVERT` | Language translation. | Code portability. |\n| | `/REGEX-GEN` | Regex generation. | Solving complex syntax. |\n| **📧 Communication** | `/EMAIL-REPLY` | Courteous reply. | Saves administrative time. |\n| | `/EMAIL-COLD` | Cold outreach email. | Sales efficiency. |\n| | `/EMAIL-DIPLOMAT` | Diplomatic rewriting. | Conflict management. |\n| **🛡️ Meta-Control** | `/NO-YAPPING` | Suppression of chatter. | Maximum information density. |\n| | `/CHAIN-OF-THOUGHT` | Step-by-step reasoning. | Massive reduction in logic errors. |\n| | `/SOURCE-CHECK` | Reliability verification. | Fights hallucinations. |\n| | `/LIMITS` | Display of uncertainties. | Intellectual honesty of the AI. |\n| | `/FORMAT-TABLE` | Markdown table output. | Immediate data usability. |\n| | `/FORMAT-JSON` | JSON output. | Integration into technical workflows. |",
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_d6e133af-8d55-4467-986d-87bbcda9d460",
+                  "id": "step_172a34ea-aa13-47e4-b92c-03304c5e3b7a",
                   "ignored": false,
                   "title": "Questioning prompt engineering: \"nothing beats practice\"",
                   "type": "acquisition",
@@ -957,11 +947,10 @@
                   "description": "Challenges the idea of prompt engineering as a durable technical expertise, presenting evidence that AI systems are increasingly effective at inferring intent. The key reframe: rather than memorising frameworks, participants should cultivate a habit of iterative dialogue and critical evaluation of outputs. Introduce the core principles of effective prompting (clarity, context, iteration) that hold regardless of how models change.",
                   "tasks": "Learn prompting principles, understand dialogue vs command approach, grasp iteration and refinement as core practices",
                   "presentation": "## Questioning prompt engineering: \"nothing beats practice\"\n---\n\n### Prompt engineering is likely a short-lived advantage\n> \"Being “good at prompting” is a temporary state of affairs. The current AI systems are already very good at figuring out your intent, and they are getting better. Prompting is not going to be that important for that much longer.\" [Mollick, 2023](https://www.oneusefulthing.org/p/a-guide-to-prompting-ai-for-what)\n\n> \"The great revolution of these AIs is their ease of access and use thanks to prompts. Having to call on a prompt engineer to effectively exploit generative AIs would result in a reduction in the number of users. The aim of providers will be to remove this barrier to entry and ensure that AIs are less reliant on 'very good' prompts to generate very good content.\" - Julia, Luc. 2025. *IA génératives, pas créatives - L'intelligence artificielle n'existe (toujours) pas*. Cherche Midi. (Translated)\n---\n\n### AI literacy is shifting from tool-specific prompting to human-centred communication\n> \"The progression is clear: **machines are meeting us where we are, not demanding we learn to speak their language**. Generative AI tools now explain how to use them while you're using them. They adapt to natural language, handle ambiguity, and provide real-time guidance.\n> This represents a **fundamental shift in human-computer interaction**. For the first time in computing history, the interface barrier is essentially disappearing [...]. The prerequisite for telling a machine what to do is no longer technical expertise. It's simply **being able to communicate as a human being**.\n> So, why are we rushing to create AI literacy curricula that focus on prompt engineering, understanding algorithms, and the technical specifications of specific AI tools? We're preparing students for a paradigm that's already becoming obsolete. [...]  [None of the required skills] are AI-specific skills. They're **human-centred capabilities** that remain valuable regardless of what technological interfaces emerge.\" ([Lodge, 2025](https://www.linkedin.com/pulse/why-ai-literacy-go-way-floppy-disk-jason-m-lodge-gg4yc))\n---\n\n### Stop chasing “the perfect prompt” — iterate with the AI.\n> \"The best way to use AI systems is not to craft the perfect prompt, but rather to use it interactively. Try asking for something. Then ask the AI to modify or adjust its output. Work with the AI, rather than trying to issue a single command that does everything you want. The more you experiment, the better off you are.\" [Ethan Mollick, 26.04,2023](https://www.oneusefulthing.org/p/a-guide-to-prompting-ai-for-what)",
-                  "linksReferences": "# Command Reference\nAdapted from https://webjeje.eu/theorie-et-pratique-de-lingenierie-de-commandes-structurees/\n\n| Category | Command | Function / Expected Action | Specific Benefit |\n| :--- | :--- | :--- | :--- |\n| **✍️ Writing & Style** | `/STYLE-POLISH` | Syntactic smoothing. | Improves form without betraying the content. |\n| | `/TEXT-SIMPLIFY` | Popularization (12-year-old level). | Makes dense concepts accessible. |\n| | `/TONE-PRO` | Switch to corporate/neutral tone. | Professionalizes a draft. |\n| | `/TONE-ENGAGING` | Switch to dynamic/emotional tone. | Increases marketing impact. |\n| | `/FIX-GRAMMAR` | Strict spelling correction. | Contextual \"Grammar Checker 2.0.\" |\n| | `/TEXT-SHORTEN` | Condensation (-50%). | Synthesis for quick reading. |\n| | `/TEXT-EXPAND` | Argued development. | Enriches points that are too brief. |\n| | `/TITLE-GEN` | Generation of 10 titles. | Fights writer's block. |\n| | `/HOOK-GEN` | Creation of hooks. | Optimizes reader attention. |\n| | `/SYNONYM-LIST` | Search for lexical nuances. | Enriches vocabulary. |\n| **🧠 Analysis & Synthesis** | `/SUM-BULLETS` | Bulleted list summary. | Visual structure of information. |\n| | `/EXTRACT-DATA` | Structured data extraction. | Transforms text into data (Excel). |\n| | `/LOGIC-CHECK` | Logical consistency audit. | Identifies fallacies/contradictions. |\n| | `/COMPARE-TAB` | Comparative table. | Binary decision support. |\n| | `/PROS-CONS` | Pros/Cons analysis. | Balanced weighing of issues. |\n| | `/KEY-TAKEAWAYS` | Extraction of core ideas. | Memorization of essentials. |\n| | `/SENTIMENT-ANALYSIS`| Tone analysis. | Understanding unspoken emotions. |\n| | `/GAP-ANALYSIS` | Identification of gaps. | Spotting what *is not* said. |\n| **🎓 Pedagogy** | `/EXPLAIN-SIMPLE` | Pedagogical analogy. | Intuitive understanding. |\n| | `/EXPLAIN-DEPTH` | Academic explanation. | Expert-level deep dive. |\n| | `/SOCRATIC-MODE` | Maieutics (questions only). | Active learning (student searches). |\n| | `/QUIZ-GEN` | MCQ generation. | Immediate self-assessment. |\n| | `/FLASHCARD` | Q&A pairs. | Spaced repetition (Anki). |\n| | `/ANALOGY-MAKER` | Creation of cross-metaphors. | Powerful memory anchoring. |\n| | `/LESSON-PLAN` | Pedagogical sequencing. | Structured lesson preparation. |\n| | `/GLOSSARY-GEN` | Technical lexicon. | Clarification of jargon. |\n| **💡 Strategy & Ideas** | `/IDEA-STORM` | Volume ideation. | Maximum creative divergence. |\n| | `/DEVILS-ADVOCATE` | Systematic contradiction. | Crash-testing an idea. |\n| | `/SWOT-GEN` | SWOT Matrix. | Standardized strategic analysis. |\n| | `/TARGET-AUDIENCE` | Persona creation. | Empathy with the target. |\n| | `/OBJECTION-KILLER` | Handling objections. | Negotiation preparation. |\n| | `/LATERAL-THINK` | Lateral thinking. | Thinking outside the box. |\n| | `/SCENARIO-PLAN` | Forecasting (3 scenarios). | Risk anticipation. |\n| | `/STEP-BY-STEP` | Operational action plan. | Moving from idea to execution. |\n| **💻 Code & Technical** | `/CODE-EXPLAIN` | Code explanation. | Automatic documentation. |\n| | `/CODE-DEBUG` | Error searching. | Saves development time. |\n| | `/CODE-REFACTOR` | Code optimization. | Cleanup and performance. |\n| | `/CODE-DOC` | Docstring generation. | Facilitates code maintenance. |\n| | `/CODE-CONVERT` | Language translation. | Code portability. |\n| | `/REGEX-GEN` | Regex generation. | Solving complex syntax. |\n| **📧 Communication** | `/EMAIL-REPLY` | Courteous reply. | Saves administrative time. |\n| | `/EMAIL-COLD` | Cold outreach email. | Sales efficiency. |\n| | `/EMAIL-DIPLOMAT` | Diplomatic rewriting. | Conflict management. |\n| **🛡️ Meta-Control** | `/NO-YAPPING` | Suppression of chatter. | Maximum information density. |\n| | `/CHAIN-OF-THOUGHT` | Step-by-step reasoning. | Massive reduction in logic errors. |\n| | `/SOURCE-CHECK` | Reliability verification. | Fights hallucinations. |\n| | `/LIMITS` | Display of uncertainties. | Intellectual honesty of the AI. |\n| | `/FORMAT-TABLE` | Markdown table output. | Immediate data usability. |\n| | `/FORMAT-JSON` | JSON output. | Integration into technical workflows. |",
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_8b33225c-2dfd-4b29-aaff-149e3d3329d3",
+                  "id": "step_35f48674-7bd5-4707-8195-0fd16e4c702a",
                   "ignored": false,
                   "title": "Main prompting approaches",
                   "type": "acquisition",
@@ -977,11 +966,10 @@
                   "evaluation": "Aucune",
                   "description": "A brief overview of the current landscape of prompting approaches and general guidelines for effective prompt design (Tuomi, 2023; promptingguide.ai). Emphasise that no single framework is universally optimal and that context, task type, and the specific model all affect what works. Position this as orientation for the hands-on exploration that follows rather than a taxonomy to memorise.",
                   "presentation": "## An evolving landscape, but some general guidelines\n> \"As the underlying language models are continuously changing, it is not clear that deep expertise can emerge on prompt engineering on these platforms. There are, however, some general guidelines for effective prompt design» [Tuomi, 2023](doi:10.2760/079734, JRC134308)\n---\n\n## Main prompting approaches\n\n| Method | Description | Characteristics | Best Use Case |\n| --- | --- | --- | --- |\n| **Simple or naïve prompting**) | Relies on natural language and the model's ability to infer intent and context. | Flexible, conversational, but can be unpredictable for complex tasks. | Simple queries or creative brainstorming. |\n  | **Structured Commands** (doesn't always work) | Uses explicit technical formatting (e.g., slash commands like `/NO-YAPPING`) to impose strict constraints. | Predictable, consistent, and treats the AI like a programming interface. | Systems requiring deterministic behaviour and high consistency. |\n| **Conversational Prompting** | Builds context through multiple exchanges, refining instructions and providing examples incrementally. | Steering-oriented, iterative, and maintains a natural dialogue flow. | Nuanced tasks requiring refinement or detailed context. |",
-                  "linksReferences": "# Command Reference\nAdapted from https://webjeje.eu/theorie-et-pratique-de-lingenierie-de-commandes-structurees/\n\n| Category | Command | Function / Expected Action | Specific Benefit |\n| :--- | :--- | :--- | :--- |\n| **✍️ Writing & Style** | `/STYLE-POLISH` | Syntactic smoothing. | Improves form without betraying the content. |\n| | `/TEXT-SIMPLIFY` | Popularization (12-year-old level). | Makes dense concepts accessible. |\n| | `/TONE-PRO` | Switch to corporate/neutral tone. | Professionalizes a draft. |\n| | `/TONE-ENGAGING` | Switch to dynamic/emotional tone. | Increases marketing impact. |\n| | `/FIX-GRAMMAR` | Strict spelling correction. | Contextual \"Grammar Checker 2.0.\" |\n| | `/TEXT-SHORTEN` | Condensation (-50%). | Synthesis for quick reading. |\n| | `/TEXT-EXPAND` | Argued development. | Enriches points that are too brief. |\n| | `/TITLE-GEN` | Generation of 10 titles. | Fights writer's block. |\n| | `/HOOK-GEN` | Creation of hooks. | Optimizes reader attention. |\n| | `/SYNONYM-LIST` | Search for lexical nuances. | Enriches vocabulary. |\n| **🧠 Analysis & Synthesis** | `/SUM-BULLETS` | Bulleted list summary. | Visual structure of information. |\n| | `/EXTRACT-DATA` | Structured data extraction. | Transforms text into data (Excel). |\n| | `/LOGIC-CHECK` | Logical consistency audit. | Identifies fallacies/contradictions. |\n| | `/COMPARE-TAB` | Comparative table. | Binary decision support. |\n| | `/PROS-CONS` | Pros/Cons analysis. | Balanced weighing of issues. |\n| | `/KEY-TAKEAWAYS` | Extraction of core ideas. | Memorization of essentials. |\n| | `/SENTIMENT-ANALYSIS`| Tone analysis. | Understanding unspoken emotions. |\n| | `/GAP-ANALYSIS` | Identification of gaps. | Spotting what *is not* said. |\n| **🎓 Pedagogy** | `/EXPLAIN-SIMPLE` | Pedagogical analogy. | Intuitive understanding. |\n| | `/EXPLAIN-DEPTH` | Academic explanation. | Expert-level deep dive. |\n| | `/SOCRATIC-MODE` | Maieutics (questions only). | Active learning (student searches). |\n| | `/QUIZ-GEN` | MCQ generation. | Immediate self-assessment. |\n| | `/FLASHCARD` | Q&A pairs. | Spaced repetition (Anki). |\n| | `/ANALOGY-MAKER` | Creation of cross-metaphors. | Powerful memory anchoring. |\n| | `/LESSON-PLAN` | Pedagogical sequencing. | Structured lesson preparation. |\n| | `/GLOSSARY-GEN` | Technical lexicon. | Clarification of jargon. |\n| **💡 Strategy & Ideas** | `/IDEA-STORM` | Volume ideation. | Maximum creative divergence. |\n| | `/DEVILS-ADVOCATE` | Systematic contradiction. | Crash-testing an idea. |\n| | `/SWOT-GEN` | SWOT Matrix. | Standardized strategic analysis. |\n| | `/TARGET-AUDIENCE` | Persona creation. | Empathy with the target. |\n| | `/OBJECTION-KILLER` | Handling objections. | Negotiation preparation. |\n| | `/LATERAL-THINK` | Lateral thinking. | Thinking outside the box. |\n| | `/SCENARIO-PLAN` | Forecasting (3 scenarios). | Risk anticipation. |\n| | `/STEP-BY-STEP` | Operational action plan. | Moving from idea to execution. |\n| **💻 Code & Technical** | `/CODE-EXPLAIN` | Code explanation. | Automatic documentation. |\n| | `/CODE-DEBUG` | Error searching. | Saves development time. |\n| | `/CODE-REFACTOR` | Code optimization. | Cleanup and performance. |\n| | `/CODE-DOC` | Docstring generation. | Facilitates code maintenance. |\n| | `/CODE-CONVERT` | Language translation. | Code portability. |\n| | `/REGEX-GEN` | Regex generation. | Solving complex syntax. |\n| **📧 Communication** | `/EMAIL-REPLY` | Courteous reply. | Saves administrative time. |\n| | `/EMAIL-COLD` | Cold outreach email. | Sales efficiency. |\n| | `/EMAIL-DIPLOMAT` | Diplomatic rewriting. | Conflict management. |\n| **🛡️ Meta-Control** | `/NO-YAPPING` | Suppression of chatter. | Maximum information density. |\n| | `/CHAIN-OF-THOUGHT` | Step-by-step reasoning. | Massive reduction in logic errors. |\n| | `/SOURCE-CHECK` | Reliability verification. | Fights hallucinations. |\n| | `/LIMITS` | Display of uncertainties. | Intellectual honesty of the AI. |\n| | `/FORMAT-TABLE` | Markdown table output. | Immediate data usability. |\n| | `/FORMAT-JSON` | JSON output. | Integration into technical workflows. |",
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_fb313d41-a725-40c2-88da-1c9120ae7b0e",
+                  "id": "step_54b0979f-cef6-4d0d-8a34-69e765a2f2fc",
                   "ignored": false,
                   "title": "Tokens and context windows",
                   "type": "acquisition",
@@ -1000,7 +988,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_ec0de330-1fd5-4ffd-a02b-311450760838",
+                  "id": "step_5f4aa39a-5752-4014-bd9a-8cc894d9745b",
                   "ignored": false,
                   "title": "Zero-shot prompting (naïve prompting) and the power of inference",
                   "type": "acquisition",
@@ -1019,7 +1007,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_004cc213-7fee-4284-8df4-f72475b3e73c",
+                  "id": "step_757fd37f-38db-4ced-bbc6-27febcdc1be7",
                   "ignored": false,
                   "title": "Structured command: presentation",
                   "type": "practice",
@@ -1038,7 +1026,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_2cff4777-e992-4094-8b71-ceaba7695b70",
+                  "id": "step_95abf8e7-ab49-4b14-8a50-48530e5c2f08",
                   "ignored": false,
                   "title": "Structured command: hands-on exploration",
                   "type": "acquisition",
@@ -1054,11 +1042,10 @@
                   "evaluation": "Aucune",
                   "description": "Participants try a selection of structured commands in Copilot, observing how different command types affect output. This exploratory activity (10 minutes) is designed to build intuition rather than mastery. Encourage participants to try commands relevant to their own inspection tasks and to note what works well and what produces unexpected results.",
                   "presentation": "## Structured command: hands-on exploration\n- Try some commands.",
-                  "linksReferences": "# Command Reference\nAdapted from https://webjeje.eu/theorie-et-pratique-de-lingenierie-de-commandes-structurees/\n\n| Category | Command | Function / Expected Action | Specific Benefit |\n| :--- | :--- | :--- | :--- |\n| **✍️ Writing & Style** | `/STYLE-POLISH` | Syntactic smoothing. | Improves form without betraying the content. |\n| | `/TEXT-SIMPLIFY` | Popularization (12-year-old level). | Makes dense concepts accessible. |\n| | `/TONE-PRO` | Switch to corporate/neutral tone. | Professionalizes a draft. |\n| | `/TONE-ENGAGING` | Switch to dynamic/emotional tone. | Increases marketing impact. |\n| | `/FIX-GRAMMAR` | Strict spelling correction. | Contextual \"Grammar Checker 2.0.\" |\n| | `/TEXT-SHORTEN` | Condensation (-50%). | Synthesis for quick reading. |\n| | `/TEXT-EXPAND` | Argued development. | Enriches points that are too brief. |\n| | `/TITLE-GEN` | Generation of 10 titles. | Fights writer's block. |\n| | `/HOOK-GEN` | Creation of hooks. | Optimizes reader attention. |\n| | `/SYNONYM-LIST` | Search for lexical nuances. | Enriches vocabulary. |\n| **🧠 Analysis & Synthesis** | `/SUM-BULLETS` | Bulleted list summary. | Visual structure of information. |\n| | `/EXTRACT-DATA` | Structured data extraction. | Transforms text into data (Excel). |\n| | `/LOGIC-CHECK` | Logical consistency audit. | Identifies fallacies/contradictions. |\n| | `/COMPARE-TAB` | Comparative table. | Binary decision support. |\n| | `/PROS-CONS` | Pros/Cons analysis. | Balanced weighing of issues. |\n| | `/KEY-TAKEAWAYS` | Extraction of core ideas. | Memorization of essentials. |\n| | `/SENTIMENT-ANALYSIS`| Tone analysis. | Understanding unspoken emotions. |\n| | `/GAP-ANALYSIS` | Identification of gaps. | Spotting what *is not* said. |\n| **🎓 Pedagogy** | `/EXPLAIN-SIMPLE` | Pedagogical analogy. | Intuitive understanding. |\n| | `/EXPLAIN-DEPTH` | Academic explanation. | Expert-level deep dive. |\n| | `/SOCRATIC-MODE` | Maieutics (questions only). | Active learning (student searches). |\n| | `/QUIZ-GEN` | MCQ generation. | Immediate self-assessment. |\n| | `/FLASHCARD` | Q&A pairs. | Spaced repetition (Anki). |\n| | `/ANALOGY-MAKER` | Creation of cross-metaphors. | Powerful memory anchoring. |\n| | `/LESSON-PLAN` | Pedagogical sequencing. | Structured lesson preparation. |\n| | `/GLOSSARY-GEN` | Technical lexicon. | Clarification of jargon. |\n| **💡 Strategy & Ideas** | `/IDEA-STORM` | Volume ideation. | Maximum creative divergence. |\n| | `/DEVILS-ADVOCATE` | Systematic contradiction. | Crash-testing an idea. |\n| | `/SWOT-GEN` | SWOT Matrix. | Standardized strategic analysis. |\n| | `/TARGET-AUDIENCE` | Persona creation. | Empathy with the target. |\n| | `/OBJECTION-KILLER` | Handling objections. | Negotiation preparation. |\n| | `/LATERAL-THINK` | Lateral thinking. | Thinking outside the box. |\n| | `/SCENARIO-PLAN` | Forecasting (3 scenarios). | Risk anticipation. |\n| | `/STEP-BY-STEP` | Operational action plan. | Moving from idea to execution. |\n| **💻 Code & Technical** | `/CODE-EXPLAIN` | Code explanation. | Automatic documentation. |\n| | `/CODE-DEBUG` | Error searching. | Saves development time. |\n| | `/CODE-REFACTOR` | Code optimization. | Cleanup and performance. |\n| | `/CODE-DOC` | Docstring generation. | Facilitates code maintenance. |\n| | `/CODE-CONVERT` | Language translation. | Code portability. |\n| | `/REGEX-GEN` | Regex generation. | Solving complex syntax. |\n| **📧 Communication** | `/EMAIL-REPLY` | Courteous reply. | Saves administrative time. |\n| | `/EMAIL-COLD` | Cold outreach email. | Sales efficiency. |\n| | `/EMAIL-DIPLOMAT` | Diplomatic rewriting. | Conflict management. |\n| **🛡️ Meta-Control** | `/NO-YAPPING` | Suppression of chatter. | Maximum information density. |\n| | `/CHAIN-OF-THOUGHT` | Step-by-step reasoning. | Massive reduction in logic errors. |\n| | `/SOURCE-CHECK` | Reliability verification. | Fights hallucinations. |\n| | `/LIMITS` | Display of uncertainties. | Intellectual honesty of the AI. |\n| | `/FORMAT-TABLE` | Markdown table output. | Immediate data usability. |\n| | `/FORMAT-JSON` | JSON output. | Integration into technical workflows. |",
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_e5d69304-f0e5-4ecc-aaa7-e4e42596cd88",
+                  "id": "step_010a3f72-8705-4805-a5c2-3826454a4e37",
                   "ignored": false,
                   "title": "Prompting frameworks and methods",
                   "type": "practice",
@@ -1079,7 +1066,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_d694c851-f78d-4d76-97fb-83ab74c5cf9b",
+                  "id": "step_6782e6c2-0ff5-497e-8732-d09b5e6bdbe0",
                   "ignored": false,
                   "title": "Prompting frameworks: Hands on exercices",
                   "type": "practice",
@@ -1098,7 +1085,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_5266465e-e7ca-44b3-9ba1-85e75c212cb6",
+                  "id": "step_c7562d97-42c5-49c6-9288-96eb1fb726ad",
                   "ignored": true,
                   "title": "In-context learning",
                   "type": "practice",
@@ -1117,7 +1104,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_8b907e44-df80-4cca-8ccc-a0ce913b7338",
+                  "id": "step_902325a6-d0c2-46ba-b60e-c26a3798e709",
                   "ignored": true,
                   "title": "Prompting exercice - Prompting Coach",
                   "type": "none",
@@ -1132,13 +1119,10 @@
                   "time": "sync",
                   "evaluation": "Aucune",
                   "description": "Prompting Coach",
-                  "evaluationSuivi": "Aucune",
-                  "toolsMaterialsTargets": [
-                    "GenAI / ChatBot — Prompting Coach"
-                  ]
+                  "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_5809a5e0-ce7d-4e74-a8da-2eda4ff4e691",
+                  "id": "step_54a44764-4630-4735-823f-53ffd414f6c4",
                   "ignored": false,
                   "title": "Prompt-audit template(s)",
                   "type": "none",
@@ -1159,14 +1143,14 @@
               ]
             },
             {
-              "id": "submoment_e482c4fe-2a0d-47c1-91e0-46b5417ce226",
+              "id": "submoment_0bb84585-be90-415b-8b4a-e34ab6ed9f8b",
               "ignored": false,
               "title": "☕️  Break",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_fc494a07-0284-4c94-b755-f258f13348cc",
+                  "id": "step_1bbcb064-4226-485f-8cf7-adbb67c13de4",
                   "ignored": false,
                   "title": "Break",
                   "type": "none",
@@ -1186,14 +1170,14 @@
               ]
             },
             {
-              "id": "submoment_71cfd793-d44c-4561-bc51-cabca74d6c1a",
+              "id": "submoment_5ad3ff6c-08b5-41e3-bb27-82ee35d318e8",
               "ignored": false,
               "title": "Prompting methods (2)",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_04b3e638-5783-4b2f-a192-962b3ae06896",
+                  "id": "step_bb8aa1f7-173c-45b1-8f4c-ba8f76c26892",
                   "ignored": false,
                   "title": "RAG",
                   "type": "practice",
@@ -1211,18 +1195,10 @@
                   "tasks": "Learn what RAG is and when to use it, understand optimisation strategies (Markdown, document structure, chunking), practice with Portuguese inspection documents, troubleshoot issues",
                   "presentation": "## RAG Model: The Core Process\n![](https://images.ctfassets.net/j22is2dtoxu1/intercom-img-2ae66a9314952f17580c806a/2f928a1a8406fe5edf169ff82aaae357/s_2053BBCB2F039E3BBD53F077FDEF28F58E8A49B99632357DE8DCA7CAD68D0A10_1704327227253_Screenshot_2B2024-01-03_2Bat_2B4.13.36PM.png)\n[image](https://help.openai.com/en/articles/8868588-retrieval-augmented-generation-rag-and-semantic-search-for-gpts)\n.\n- **User Query:** The user submits a prompt or question.\n- **Vector Search:** An internal search engine uses an **embedding model** to query a database (typically a vector store).\n- **Context Retrieval:** The most **relevant sources** are retrieved and passed to the Large Language Model (LLM).\n- **Augmented Generation:** The LLM generates an informed response based on these sources and returns it to the user.",
                   "notes": "Addresses LO2.1, LO2.2, LO2.4 | DigComp 3.4, 2.1, 1.2",
-                  "evaluationSuivi": "Aucune",
-                  "competences": [
-                    "dc3_3_4",
-                    "dc3_2_1",
-                    "dc3_1_2"
-                  ],
-                  "competencesTransversales": [
-                    "ai_literacy_1"
-                  ]
+                  "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_67edb8fe-302d-4805-a101-cd1d16d2edca",
+                  "id": "step_cfe03b9b-1384-4ec6-9cae-a0e59cc44aa3",
                   "ignored": false,
                   "title": "The use of Markdown and JSON for structured documents",
                   "type": "practice",
@@ -1240,18 +1216,10 @@
                   "tasks": "Learn what RAG is and when to use it, understand optimisation strategies (Markdown, document structure, chunking), practice with Portuguese inspection documents, troubleshoot issues",
                   "presentation": "## Optimising RAG with Structured Content\nTo improve the performance of a **Retrieval-Augmented Generation (RAG)** system, the format of the retrieved data is just as important as the content itself. \n### 1. Why Structure Matters\n* **Lighter Prompts:** Highly structured content requires fewer instructions (you don't need to explain how to read the data if the format is inherently logical).\n* **Increased Accuracy:** LLMs are statistically better at extracting specific values from structured formats than from \"wall-of-text\" paragraphs.\n* **Contextual Clarity:** Structured data allows the AI to immediately identify relationships between entities (e.g., a \"Name\" linked to a \"Participant ID\").\n\n### 2. Preferred Text-Based Formats\nFor RAG, two formats stand out as the industry standards:\n#### **Markdown (.md)**\n* **Best for:** Hierarchical documents, manuals, and articles.\n* **Why:** It uses simple headers (`#`, `##`) and tables that LLMs understand perfectly. It preserves document structure without the overhead of heavy code.\n> [What is Markdown? Getting started](https://www.markdownguide.org/getting-started/)\n#### **JSON (.json)**\n* **Best for:** Technical data, specifications, and database records.\n* **Why:** It provides a strict **Key-Value** pair relationship. This is ideal for when you need the GenAI to perform specific lookups or comparisons (e.g., \"Find the dimensions of Part X\").\n\n### 3. The Result\nBy providing structured snippets, you can **omit complex parameters** or lengthy explanations in your system prompt. The AI treats the structure as the roadmap, leading to faster processing and more reliable outputs.\n\n---\n## Why Markdown (MD) is Superior for RAG Pipelines\n\nConverting documents from layout-heavy formats (PDF, Word) into **Markdown (MD)** is a strategic optimisation for Retrieval-Augmented Generation. While PDFs are designed for human eyes, Markdown is built for machine readability and structural clarity.\n\n### 1. Structural Preservation (Semantic Hierarchy)\n* **Headers as Anchors:** Markdown uses simple syntax (`#`, `##`, `###`) to denote hierarchy. This allows the RAG system to understand which \"chunk\" belongs to which section, preserving the relationship between a subheading and its content.\n* **Tables and Lists:** In a PDF, a table is often just a collection of floating text. In Markdown, tables are structured as rows and columns, allowing the LLM to perform accurate data lookups (e.g., matching a price to a specific part number).\n\n### 2. Token Efficiency & Noise Reduction\n* **Stripping Metadata:** PDF and Word files contain hidden formatting code, font data, and page coordinates. Converting to MD removes this \"noise,\" ensuring that every token sent to the LLM is actual, useful information.\n* **Cleaner Chunking:** It is much easier to split a document logically at a Markdown header than at an arbitrary page break, which often cuts sentences or context in half.\n\n### 3. Improved Retrieval Accuracy\n* **Better Embeddings:** When text is clean and logically ordered, the **Embedding Model** creates more accurate mathematical vectors. This leads to higher \"hit rates\" during the search phase—meaning the AI finds the correct answer more consistently.\n* **Contextual Weight:** Markdown makes it easier for the system to keep the \"parent\" context (like a chapter title) attached to a small snippet of text, giving the LLM the full picture even if it only sees one paragraph.\n\n### 4. LLM \"Native\" Language\nMost Large Language Models are trained extensively on web data, documentation, and code repositories. Consequently, **Markdown is the format LLMs understand most naturally**, leading to faster processing and more coherent reasoning.\n\n### Summary of Benefits\n\n| Feature | PDF / Word | Markdown (MD) |\n| :--- | :--- | :--- |\n| **Structure** | Visual/Layout based | Logical/Semantic |\n| **Noise** | High (Metadata/Fonts) | Low (Pure Text) |\n| **Searchability** | Fragmented | Integrated |\n| **LLM Parsing** | Difficult/Variable | Highly Reliable |\n\n---\n## How to convert a document into MD or JSON?\n- Many options...",
                   "notes": "Addresses LO2.1, LO2.2, LO2.4 | DigComp 3.4, 2.1, 1.2",
-                  "evaluationSuivi": "Aucune",
-                  "competences": [
-                    "dc3_3_4",
-                    "dc3_2_1",
-                    "dc3_1_2"
-                  ],
-                  "competencesTransversales": [
-                    "ai_literacy_1"
-                  ]
+                  "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_3f4c62bc-ccad-4526-aade-09c44de55539",
+                  "id": "step_51bde36a-611c-45a4-99e9-9d679c66940f",
                   "ignored": false,
                   "title": "Hands on exercices",
                   "type": "none",
@@ -1274,7 +1242,7 @@
           ]
         },
         {
-          "id": "moment_ded0f467-8fbd-4714-bc9e-bb924bc27dcd",
+          "id": "moment_2dd45c22-cd2e-4ffd-a025-fe27a9ebb1c3",
           "ignored": false,
           "title": "12:30-13:30 - 🥕 LUNCH",
           "description": "Lunch break. Informal networking.",
@@ -1282,7 +1250,7 @@
           "targetUnit": "3600"
         },
         {
-          "id": "moment_8b5daca7-93a5-4114-8afc-10b1e4f00b7b",
+          "id": "moment_1f909522-d902-46ab-95c9-9fa6344bad66",
           "ignored": false,
           "title": "13:30-17:00 - AI agents in professional workflows",
           "description": "AI agents in inspection workflows (safe delegation, human oversight, traceability, and auditability)",
@@ -1290,21 +1258,129 @@
           "targetUnit": "60",
           "subMoments": [
             {
-              "id": "submoment_6ca2f835-e16d-4503-b168-c514997622b9",
+              "id": "submoment_d8d1347e-5fe6-4305-b6fd-167ed7267bdf",
               "ignored": false,
-              "title": "sdsqddsq",
+              "title": "",
               "targetTime": "",
-              "targetUnit": "60"
+              "targetUnit": "60",
+              "steps": [
+                {
+                  "id": "step_109068ee-f513-477c-9f7a-29cc364cfcaf",
+                  "ignored": false,
+                  "title": "What are agents?",
+                  "type": "none",
+                  "duration": "15",
+                  "unit": "60",
+                  "status": "in_progress",
+                  "groupMode": "class",
+                  "groupSize": "30",
+                  "trainer": "present",
+                  "place": "situ",
+                  "time": "sync",
+                  "evaluation": "Aucune"
+                },
+                {
+                  "id": "step_f9735d45-681e-4c0a-a95f-b4786598bb2f",
+                  "ignored": false,
+                  "title": "Exploration of agents on MS Copilot - Demo",
+                  "type": "none",
+                  "duration": "30",
+                  "unit": "60",
+                  "status": "in_progress",
+                  "groupMode": "class",
+                  "groupSize": "30",
+                  "trainer": "present",
+                  "place": "situ",
+                  "time": "sync",
+                  "evaluation": "Aucune"
+                },
+                {
+                  "id": "step_6af3db76-9ecf-4435-85fe-44ae81c00b46",
+                  "ignored": false,
+                  "title": "Hands-on creation of agents (in groups)",
+                  "type": "none",
+                  "duration": "40",
+                  "unit": "60",
+                  "status": "in_progress",
+                  "groupMode": "class",
+                  "groupSize": "30",
+                  "trainer": "present",
+                  "place": "situ",
+                  "time": "sync",
+                  "evaluation": "Aucune"
+                },
+                {
+                  "id": "step_575cdcf1-066e-4456-99cb-0feb2c8f99af",
+                  "ignored": false,
+                  "title": "Rotation (walking presentations)",
+                  "type": "none",
+                  "duration": "40",
+                  "unit": "60",
+                  "status": "in_progress",
+                  "groupMode": "class",
+                  "groupSize": "30",
+                  "trainer": "present",
+                  "place": "situ",
+                  "time": "sync",
+                  "evaluation": "Aucune"
+                },
+                {
+                  "id": "step_e8a00175-35d5-4c40-9731-ed7cfa2ea089",
+                  "ignored": false,
+                  "title": "Pause",
+                  "type": "none",
+                  "duration": "20",
+                  "unit": "60",
+                  "status": "in_progress",
+                  "groupMode": "class",
+                  "groupSize": "30",
+                  "trainer": "present",
+                  "place": "situ",
+                  "time": "sync",
+                  "evaluation": "Aucune"
+                },
+                {
+                  "id": "step_cd4f8274-90dc-46f3-9e10-f8f7c9daf735",
+                  "ignored": false,
+                  "title": "Finalisation and sharing of agents",
+                  "type": "none",
+                  "duration": "30",
+                  "unit": "60",
+                  "status": "in_progress",
+                  "groupMode": "class",
+                  "groupSize": "30",
+                  "trainer": "present",
+                  "place": "situ",
+                  "time": "sync",
+                  "evaluation": "Aucune"
+                },
+                {
+                  "id": "step_dc375c28-7a3e-4ae8-a7c1-35811d785d14",
+                  "ignored": false,
+                  "title": "Debrief",
+                  "type": "none",
+                  "duration": "30",
+                  "unit": "60",
+                  "status": "in_progress",
+                  "groupMode": "class",
+                  "groupSize": "30",
+                  "trainer": "present",
+                  "place": "situ",
+                  "time": "sync",
+                  "evaluation": "Aucune"
+                }
+              ]
             }
           ]
         }
       ]
     },
     {
-      "id": "module_5d896786-ee63-464e-aba7-cbb55370a1a5",
+      "id": "module_0c7f7dcc-381d-41b3-a433-1f6fb3791367",
       "ignored": false,
       "title": "Day 3 - From Individual to Collective: Building Organisational AI Capacity",
       "description": "- Day 3 focuses on collaborative application development, where participants co-create shared prompt libraries and explore \"vibe-coding\" techniques to build a single-page web application for institutional use (a lightweight prompt generator, enabling the modelling of best practices and sustaining ongoing professional learning).\n- Day 3 is for in-person training only: the session will be held exclusively in-person because it focuses on production and requires direct support from the expert.\n",
+      "moduleStartTime": "",
       "targetTime": "6",
       "targetUnit": "3600",
       "learningAimsModule": [
@@ -1315,7 +1391,7 @@
       ],
       "moments": [
         {
-          "id": "moment_97815720-3663-420c-96b5-e714e75df3a1",
+          "id": "moment_63f9fd7d-7357-40ae-a5c8-695320e1c312",
           "ignored": false,
           "title": "Creating visuals",
           "description": "This moment covers the use of GenAI tools to create visual outputs relevant to professional practice (e.g. diagrams, summary graphics, or data visualisations for inspection reporting). No step-level content has been entered in the current version of the file; the trainer should populate this moment with specific activities before delivery.",
@@ -1323,7 +1399,7 @@
           "targetUnit": "60",
           "steps": [
             {
-              "id": "step_8b1bbdfc-f352-45a6-b222-868874bfed0e",
+              "id": "step_51c695cb-7631-4ee4-8fff-c8e9269af191",
               "ignored": false,
               "title": "Creating visuals: presentation",
               "type": "none",
@@ -1341,7 +1417,7 @@
               "evaluationSuivi": "Aucune"
             },
             {
-              "id": "step_6ee31f4d-cac4-43d3-a88f-53d794c83486",
+              "id": "step_3a559083-80f5-4b11-941f-53bbb0dc42b4",
               "ignored": false,
               "title": "Creating visuals: hands on exercice",
               "type": "none",
@@ -1359,7 +1435,7 @@
               "evaluationSuivi": "Aucune"
             },
             {
-              "id": "step_9bbb34e0-ebcb-44dc-8eab-4bfefe47c032",
+              "id": "step_ffbd350b-6c02-4953-b7b4-5ff6f0e8281d",
               "ignored": false,
               "title": "Creating visuals: sharing results (plenary)",
               "type": "none",
@@ -1379,7 +1455,7 @@
           ]
         },
         {
-          "id": "moment_ed7b1a3c-5a0f-4903-82cc-50693091ea6b",
+          "id": "moment_f0ec8f63-03e2-49e8-8268-4137881941fb",
           "ignored": false,
           "title": "Creating shared prompt libraries for organisational consistency",
           "description": "This 90-minute morning moment launches Day 3's collective work by establishing the rationale and design principles for a shared organisational prompt library. It moves from ideation (why and how to share prompts) through a break to a hands-on project session in which participants collaboratively design the structure of a prompt database and an associated collection form.",
@@ -1387,14 +1463,14 @@
           "targetUnit": "60",
           "subMoments": [
             {
-              "id": "submoment_6104fcfd-1514-4962-8e34-5d9827928fcb",
+              "id": "submoment_412f2815-d298-4a9c-a106-88f410f36a4b",
               "ignored": false,
               "title": "The Power of Shared Libraries",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_2a51cb57-8fa4-458d-86d6-c71e43e2c32b",
+                  "id": "step_d29b88c7-9501-4b34-bc78-2400e5a93113",
                   "ignored": false,
                   "title": "Ideation: Why Shared Prompt Libraries Matter (Consistency, QA, Onboarding)",
                   "type": "discussion",
@@ -1413,7 +1489,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_72da2c7e-b16f-402e-b70f-7a6adc462c45",
+                  "id": "step_6d1ee7d2-30e1-4265-af48-de74ec93fff1",
                   "ignored": false,
                   "title": "Ideation: How to share the prompts?",
                   "type": "discussion",
@@ -1434,18 +1510,18 @@
               ]
             },
             {
-              "id": "submoment_0493bede-3d54-42d8-a5ac-acb9dfd16197",
+              "id": "submoment_a8b920e4-fdb0-48b2-abe3-e2ac6ca504ac",
               "ignored": false,
               "title": "☕️ Break",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_5c6294ee-3a86-4efb-945e-aae347e1be62",
+                  "id": "step_8b63b898-6919-47de-8c39-1a6d69e278ff",
                   "ignored": false,
                   "title": "☕️ Break",
                   "type": "none",
-                  "duration": "15",
+                  "duration": "20",
                   "unit": "60",
                   "status": "in_progress",
                   "groupMode": "class",
@@ -1461,18 +1537,18 @@
               ]
             },
             {
-              "id": "submoment_5c693916-11fc-4d56-b252-5987904ca466",
+              "id": "submoment_1818f8b4-7adf-4870-b7f7-5a5197d583b7",
               "ignored": false,
               "title": "Project: Prompt Database & Form to collect prompts",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_d36e66d3-a1ff-441d-9870-c9731bd8803e",
+                  "id": "step_a26db409-a9ae-4960-b0de-a5e897f04178",
                   "ignored": false,
                   "title": "Prompt Database structure",
                   "type": "none",
-                  "duration": "30",
+                  "duration": "20",
                   "unit": "60",
                   "status": "in_progress",
                   "groupMode": "class",
@@ -1487,11 +1563,11 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_ad0eef11-dfca-461a-ab02-69334ac430b0",
+                  "id": "step_b11ddad4-2f9e-4aff-a80e-8c693c570607",
                   "ignored": false,
                   "title": "Form structure",
                   "type": "none",
-                  "duration": "30",
+                  "duration": "20",
                   "unit": "60",
                   "status": "in_progress",
                   "groupMode": "class",
@@ -1510,7 +1586,7 @@
           ]
         },
         {
-          "id": "moment_02273cd4-9c65-4aa7-9a26-2516d0dc2adf",
+          "id": "moment_4113b875-1237-433e-9cc8-f97c54dbe752",
           "ignored": true,
           "title": "12:30-13:30 -  🍰  LUNCH",
           "description": "Lunch break. Informal networking.",
@@ -1518,7 +1594,7 @@
           "targetUnit": "3600"
         },
         {
-          "id": "moment_635b2d82-55f4-4038-9ada-4eb653715e3d",
+          "id": "moment_082c8b17-1c2f-46b9-8fc1-e3b6ff9a24e8",
           "ignored": false,
           "title": "13:30-17:00 - Building and Implementing the Prompt Generator",
           "description": "The afternoon session uses vibe-coding (iterative AI-assisted front-end development) to build and refine a single-page web application (SPA) that operationalises the morning's prompt library design. Moving from a brief introduction and a worked example through hands-on exercises to a trainer-led live build and group refinements, participants experience the full cycle of AI-assisted development and end the day with a working prototype and a deployment roadmap.",
@@ -1526,14 +1602,14 @@
           "targetUnit": "60",
           "subMoments": [
             {
-              "id": "submoment_e06e41cc-fe71-47d7-8f9e-43c7b15e0f08",
+              "id": "submoment_4f8b85b7-9c36-4981-bb9b-00a9097a5e10",
               "ignored": false,
               "title": "Implement the modifications with GenAI (vibe-coding)",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_4cf61b18-18c9-4d18-9f9f-76c3ba462c42",
+                  "id": "step_9a9a7379-3c0d-44ff-a055-a5a6d9c3d693",
                   "ignored": false,
                   "title": "What is vibe-coding?",
                   "type": "none",
@@ -1552,7 +1628,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_6447a912-79e6-41d0-b3f5-9ab8a1097b2c",
+                  "id": "step_2571474a-b65f-404e-b309-2b6b9ae18b25",
                   "ignored": false,
                   "title": "Vibe coding example: the PT laboratory checklist",
                   "type": "none",
@@ -1571,7 +1647,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_45259267-0a1e-42d9-8a89-3dcc5aaefe88",
+                  "id": "step_c5d4ab09-5a03-460f-a7d0-b7375b924760",
                   "ignored": false,
                   "title": "Vibe coding: hands on exercice",
                   "type": "none",
@@ -1590,11 +1666,11 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_9171a551-687d-4b71-899f-78c55c973fa4",
+                  "id": "step_199aa7ff-c030-4c67-949a-175fddf31e69",
                   "ignored": false,
                   "title": "Upgrading the simple prompt builder",
                   "type": "none",
-                  "duration": "40",
+                  "duration": "30",
                   "unit": "60",
                   "status": "review",
                   "groupMode": "groups",
@@ -1609,7 +1685,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_58b52963-e896-4a95-a9b9-1e2a46eb9387",
+                  "id": "step_0f973044-f3ad-4eb7-8153-7c9b06b48ecb",
                   "ignored": true,
                   "title": "Proposed solution: Single Page Application (SPA) developped via Vibe-Coding",
                   "type": "none",
@@ -1627,7 +1703,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_053ee216-5dab-4ae2-8cc9-d800eff7845f",
+                  "id": "step_e33263a6-9222-47ac-8b03-a0351e9ed0af",
                   "ignored": true,
                   "title": "What are Single Page Application (SPA)? Examples",
                   "type": "acquisition",
@@ -1645,7 +1721,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_aa38a953-120b-4e38-8df9-7a51a6555e9b",
+                  "id": "step_d1812cbf-4f93-47fd-a94d-7f70689ca54c",
                   "ignored": false,
                   "title": "☕️ Break",
                   "type": "none",
@@ -1665,14 +1741,14 @@
               ]
             },
             {
-              "id": "submoment_6ba5cd7b-3947-4beb-a5ed-722c833cce77",
+              "id": "submoment_90bbfa7d-322f-45fa-81c7-9fe488ecd726",
               "ignored": false,
               "title": "Build the Prompt-Generator Prototype",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_1ae412f3-aa62-4754-8915-39898b93bfe0",
+                  "id": "step_14791562-8a81-490e-b307-28ff6163f722",
                   "ignored": false,
                   "title": "Vibe coding: build the monopage inspectors app (trainer wiyth GenAI)",
                   "type": "none",
@@ -1688,17 +1764,14 @@
                   "evaluation": "Aucune",
                   "description": "## Upgrade the single prompt builder\n- Download the [HTML file](https://github.com/jourde/GenAI-training-IGEC/blob/main/activities/simple-prompt-builder.html)\n- Prompt the app upgrade iteratively, based on the pattern matrix.\n---\n\n## GenAI prompt to produce the app (copy/paste)\n\n```\n# Role: You are a senior front-end engineer.\n\n# Context:\n- You are developing a single-page local web app for IGEC professionals to help them consistently generate prompts.\n- The app operationalises repeatable prompt decisions into dropdowns, checkboxes, and free-text boxes.\n\n# Inputs:\nI will paste workshop results:\n- A Pattern Matrix and/or completed Standard Pattern Templates. Do not invent patterns or options not implied by the provided data.\n- A Single Prompt Builder HTML file to serve as the app base.\n\n# Constraints:\n- Use British English for UI labels.\n- Accessibility: **WCAG 2.1 Compliance**.\n\n# Output format:\n1) Provide the revised HTML file.\n2) Explain the main modifications\n```",
                   "presentation": "## Upgrade the single prompt builder\n- Download the [HTML file](https://github.com/jourde/GenAI-training-IGEC/blob/main/activities/simple-prompt-builder.html)\n- Prompt the app upgrade iteratively, based on the pattern matrix.\n---\n\n## GenAI prompt to produce the app (copy/paste)\n\n```\n# Role: You are a senior front-end engineer.\n\n# Context:\n- You are developing a single-page local web app for IGEC professionals to help them consistently generate prompts.\n- The app operationalises repeatable prompt decisions into dropdowns, checkboxes, and free-text boxes.\n\n# Inputs:\nI will paste workshop results:\n- A Pattern Matrix and/or completed Standard Pattern Templates. Do not invent patterns or options not implied by the provided data.\n- A Single Prompt Builder HTML file to serve as the app base.\n\n# Constraints:\n- Use British English for UI labels.\n- Accessibility: **WCAG 2.1 Compliance**.\n\n# Output format:\n1) Provide the revised HTML file.\n2) Explain the main modifications\n```",
-                  "evaluationSuivi": "Aucune",
-                  "toolsMaterialsTargets": [
-                    "Word processor / Microsoft — Word"
-                  ]
+                  "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_09047589-4939-48c2-afb2-a082f980ecb3",
+                  "id": "step_eb6a8a72-584b-4e24-a9a0-9c5019086f27",
                   "ignored": false,
                   "title": "Group refinements of the app",
                   "type": "none",
-                  "duration": "40",
+                  "duration": "30",
                   "unit": "60",
                   "status": "in_progress",
                   "groupMode": "class",
@@ -1712,7 +1785,7 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_d0789d8a-29d3-4764-94d5-f83299409486",
+                  "id": "step_96a80ce5-65cc-4a37-b592-54195731b84e",
                   "ignored": false,
                   "title": "Roadmap: How to share the monopage web app ? Brainstorming on Strategies and roadmap",
                   "type": "discussion",
@@ -1732,14 +1805,14 @@
               ]
             },
             {
-              "id": "submoment_54ac0cb8-f587-4448-b11c-70474a38ee9b",
+              "id": "submoment_f521b654-4f8c-4673-ba58-2f25b3b9c9df",
               "ignored": false,
               "title": "Closure: Consolidation and Next Steps",
               "targetTime": "",
               "targetUnit": "60",
               "steps": [
                 {
-                  "id": "step_184a221c-71f1-4910-8f7a-269b66afb9d5",
+                  "id": "step_ed2069d3-8469-475a-a6b0-7e32acc14784",
                   "ignored": false,
                   "title": "Collective Reflection",
                   "type": "discussion",
@@ -1757,16 +1830,10 @@
                   "tasks": "Reflect on journey, connect foundational knowledge to practical application, identify transformative moments, recognise competence development",
                   "presentation": "## Revisiting the expectations from Day 1\n...\n---\n## Synthesis of Key Learning\n...\n## Individual/Collective Action Planning\n...",
                   "notes": "Addresses LO3.13 | DigComp 5.4",
-                  "evaluationSuivi": "Aucune",
-                  "competences": [
-                    "dc3_5_4"
-                  ],
-                  "competencesTransversales": [
-                    "ai_literacy_1"
-                  ]
+                  "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_9185b539-c046-4461-a4d7-47f5514fb759",
+                  "id": "step_3f5ebdba-a560-44ee-aa51-c20c299f040d",
                   "ignored": false,
                   "title": "Training Evaluation (online form)",
                   "type": "discussion",
@@ -1785,11 +1852,11 @@
                   "evaluationSuivi": "Aucune"
                 },
                 {
-                  "id": "step_7b4ee648-c536-45f0-bb0e-5ec0fa9acd31",
+                  "id": "step_7cab6d98-fd23-4884-8304-f56bad4c815c",
                   "ignored": false,
                   "title": "Closing Remarks",
                   "type": "discussion",
-                  "duration": "15",
+                  "duration": "10",
                   "unit": "60",
                   "status": "in_progress",
                   "groupMode": "class",
@@ -1810,15 +1877,16 @@
       ]
     },
     {
-      "id": "module_50850201-1f1f-4be6-a5be-4f4fe9204f30",
+      "id": "module_865bb909-76f0-4f9c-849c-9a76a1283ad0",
       "ignored": false,
       "title": "Resources",
       "description": "A reference module providing curated materials to support participants' continued learning after the training. Content may include links to key frameworks (DigComp 3.0, AI Literacy Framework), the training slide deck, prompt builder tools, and further reading. This module has no timed activities and is intended for self-directed use.",
+      "moduleStartTime": "",
       "targetTime": "",
       "targetUnit": "3600",
       "moments": [
         {
-          "id": "moment_3fdfb0a5-7361-4176-975c-a5c41f7a872a",
+          "id": "moment_a67064be-3301-43c1-afdb-bebbdb463495",
           "ignored": false,
           "title": "",
           "description": "This moment has no title or step-level content in the current version of the file. It should either be populated with resource links and reference materials or removed if the Resources module is maintained externally (e.g. as a standalone reference page in the HTML slide deck).",
@@ -1826,7 +1894,7 @@
           "targetUnit": "3600",
           "steps": [
             {
-              "id": "step_a3a25554-dbdc-4a97-bc0b-689b0195a1bc",
+              "id": "step_c680df76-c8d3-4e5b-b281-c89b9f4ec6e5",
               "ignored": false,
               "title": "AI Glossary",
               "type": "none",
